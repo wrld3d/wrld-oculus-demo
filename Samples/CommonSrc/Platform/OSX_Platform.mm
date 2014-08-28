@@ -48,8 +48,8 @@ using namespace OVR::OvrPlatform;
         // The platform attached to an app will be deleted by DestroyApplication.
         app->SetPlatformCore(platform);
         
-        [self setApp:app];
-        [self setPlatform:platform];
+        _App = app;
+        _Platform = platform;
         
         const char* argv[] = {"OVRApp"};
         int exitCode = app->OnStartup(1, argv);
@@ -160,6 +160,16 @@ static int MapModifiers(unsigned long xmod)
 -(BOOL) acceptsFirstMouse:(NSEvent *)ev
 {
     return YES;
+}
+
+-(void)setApp:(OVR::OvrPlatform::Application *)app
+{
+    _App = app;
+}
+
+-(void)setPlatform:(OVR::OvrPlatform::OSX::PlatformCore *)platform
+{
+    _Platform = platform;
 }
 
 +(CGDirectDisplayID) displayFromScreen:(NSScreen *)s
