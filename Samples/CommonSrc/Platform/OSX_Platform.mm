@@ -22,6 +22,8 @@ limitations under the License.
 ************************************************************************************/
 
 #import "../Platform/OSX_PlatformObjc.h"
+#import "OVRToTouchAdaptor.h"
+#import "EegeoPlatform.h"
 
 using namespace OVR;
 using namespace OVR::OvrPlatform;
@@ -78,7 +80,7 @@ using namespace OVR::OvrPlatform;
 
 @end
 
-static int KeyMap[][2] =
+static int OVRKeyMap[][2] =
 {
     { NSDeleteFunctionKey,      OVR::Key_Delete },
     { '\t',       OVR::Key_Tab },
@@ -124,11 +126,11 @@ static KeyCode MapToKeyCode(wchar_t vk)
     }
     else
     {
-        for (unsigned i = 0; i< (sizeof(KeyMap) / sizeof(KeyMap[1])); i++)
+        for (unsigned i = 0; i< (sizeof(OVRKeyMap) / sizeof(OVRKeyMap[1])); i++)
         {
-            if (vk == KeyMap[i][0])
+            if (vk == OVRKeyMap[i][0])
             {
-                key = KeyMap[i][1];
+                key = OVRKeyMap[i][1];
                 break;
             }
         }
@@ -160,6 +162,11 @@ static int MapModifiers(unsigned long xmod)
 -(BOOL) acceptsFirstMouse:(NSEvent *)ev
 {
     return YES;
+}
+
+-(NSOpenGLPixelFormat*)getPixelFormat
+{
+    return _PixelFormat;
 }
 
 -(void)setApp:(OVR::OvrPlatform::Application *)app
@@ -226,6 +233,7 @@ static bool LookupKey(NSEvent* ev, wchar_t& ch, OVR::KeyCode& key, unsigned& mod
     }
     _App->OnKey(key, ch, true, mods);
 }
+
 -(void) keyUp:(NSEvent*)ev
 {
 	OVR::KeyCode key;
@@ -309,6 +317,12 @@ static const OVR::KeyCode ModifierKeys[] = {OVR::Key_None, OVR::Key_Shift, OVR::
         [NSCursor hide];
         _Platform->MMode = Mouse_Relative;
     }
+    [self ProcessMouse:ev];
+}
+
+- (void)mouseUp:(NSEvent *)ev
+{
+    [self ProcessMouse:ev];
 }
 
 //-(void)
@@ -321,10 +335,13 @@ static const OVR::KeyCode ModifierKeys[] = {OVR::Key_None, OVR::Key_Shift, OVR::
 //        NSOpenGLPFAWindow,
         NSOpenGLPFADoubleBuffer,
         NSOpenGLPFADepthSize, 24,
+        NSOpenGLPFAStencilSize, 8,
         nil
     };
         
     NSOpenGLPixelFormat *pf = [[[NSOpenGLPixelFormat alloc] initWithAttributes:attr] autorelease];
+    
+    _PixelFormat = pf;
     
     self = [super initWithFrame:frameRect pixelFormat:pf];
     GLint swap = 0;
@@ -431,6 +448,14 @@ void* PlatformCore::SetupWindow(int w, int h)
     [win setAcceptsMouseMovedEvents:YES];
     [win setDelegate:view];
     [view setApp:pApp];
+    
+    NSOpenGLPixelFormat* pixelFormat = [view getPixelFormat];
+    Eegeo::Platform* eegeoPlatform = new Eegeo::Platform(w, h, 1, 100, pixelFormat);
+    pApp->SetEegeoPlatform(eegeoPlatform);
+    
+    Eegeo::OVRToTouchAdaptor* theTouchAdaptor = new Eegeo::OVRToTouchAdaptor(eegeoPlatform->GetTouchController(), w, h);
+    pApp->SetOVRToTouchAdaptor(theTouchAdaptor);
+    
     Win = win;
     View = view;
     return (void*)[win windowNumber];

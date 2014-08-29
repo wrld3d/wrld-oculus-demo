@@ -7,6 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		188886FF19AF91F5006B323B /* OVRToTouchAdaptor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 188886FC19AF91F5006B323B /* OVRToTouchAdaptor.cpp */; };
+		1888870019AF91F5006B323B /* EeegeoPlatform.mm in Sources */ = {isa = PBXBuildFile; fileRef = 188886FE19AF91F5006B323B /* EeegeoPlatform.mm */; };
+		1888870719B073B6006B323B /* libapps-on-maps-osx.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1888870619B073B6006B323B /* libapps-on-maps-osx.dylib */; };
+		1888870C19B0740D006B323B /* libapps-on-maps-osx.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1888870B19B0740D006B323B /* libapps-on-maps-osx.dylib */; };
+		1888870E19B07424006B323B /* libhttpxx.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1888870D19B07424006B323B /* libhttpxx.dylib */; };
+		1888871B19B076F1006B323B /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 1888870F19B076F1006B323B /* Default-Landscape@2x~ipad.png */; };
+		1888871C19B076F1006B323B /* FrankBold50_A8_icons_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 1888871019B076F1006B323B /* FrankBold50_A8_icons_0.png */; };
+		1888871D19B076F1006B323B /* FrankBold50_A8_icons.fnt in Resources */ = {isa = PBXBuildFile; fileRef = 1888871119B076F1006B323B /* FrankBold50_A8_icons.fnt */; };
+		1888871E19B076F1006B323B /* IPAexGothic32_A8_icons_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 1888871219B076F1006B323B /* IPAexGothic32_A8_icons_0.png */; };
+		1888871F19B076F1006B323B /* IPAexGothic32_A8_icons_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1888871319B076F1006B323B /* IPAexGothic32_A8_icons_1.png */; };
+		1888872019B076F1006B323B /* IPAexGothic32_A8_icons_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1888871419B076F1006B323B /* IPAexGothic32_A8_icons_2.png */; };
+		1888872119B076F1006B323B /* IPAexGothic32_A8_icons_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 1888871519B076F1006B323B /* IPAexGothic32_A8_icons_3.png */; };
+		1888872219B076F1006B323B /* IPAexGothic32_A8_icons_4.png in Resources */ = {isa = PBXBuildFile; fileRef = 1888871619B076F1006B323B /* IPAexGothic32_A8_icons_4.png */; };
+		1888872319B076F1006B323B /* IPAexGothic32_A8_icons_5.png in Resources */ = {isa = PBXBuildFile; fileRef = 1888871719B076F1006B323B /* IPAexGothic32_A8_icons_5.png */; };
+		1888872419B076F1006B323B /* IPAexGothic32_A8_icons_6.png in Resources */ = {isa = PBXBuildFile; fileRef = 1888871819B076F1006B323B /* IPAexGothic32_A8_icons_6.png */; };
+		1888872519B076F1006B323B /* IPAexGothic32_A8_icons.fnt in Resources */ = {isa = PBXBuildFile; fileRef = 1888871919B076F1006B323B /* IPAexGothic32_A8_icons.fnt */; };
+		1888872619B076F1006B323B /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 1888871A19B076F1006B323B /* placeholder.png */; };
 		E83DE6F419197F6A00EC97E1 /* OptionMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E83DE6F019197F6A00EC97E1 /* OptionMenu.cpp */; };
 		E83DE6F519197F6A00EC97E1 /* RenderProfiler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E83DE6F219197F6A00EC97E1 /* RenderProfiler.cpp */; };
 		E879CFE9190866D1008CE996 /* Assets in Resources */ = {isa = PBXBuildFile; fileRef = E879CFE8190866D1008CE996 /* Assets */; };
@@ -31,7 +48,41 @@
 		E8E0A58D1908619A0077EB8E /* libovr.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E8E0A58C1908619A0077EB8E /* libovr.a */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		1888870A19B073FA006B323B /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				1888870E19B07424006B323B /* libhttpxx.dylib in CopyFiles */,
+				1888870C19B0740D006B323B /* libapps-on-maps-osx.dylib in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		188886FB19AF91F5006B323B /* OVRToTouchAdaptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OVRToTouchAdaptor.h; path = "../../../../../../../../../../git/eegeo-mobile/eegeo-stream-osx/OVRToTouchAdaptor.h"; sourceTree = "<group>"; };
+		188886FC19AF91F5006B323B /* OVRToTouchAdaptor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = OVRToTouchAdaptor.cpp; path = "../../../../../../../../../../git/eegeo-mobile/eegeo-stream-osx/OVRToTouchAdaptor.cpp"; sourceTree = "<group>"; };
+		188886FD19AF91F5006B323B /* EegeoPlatform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EegeoPlatform.h; path = "../../../../../../../../../../git/eegeo-mobile/eegeo-stream-osx/EegeoPlatform.h"; sourceTree = "<group>"; };
+		188886FE19AF91F5006B323B /* EeegeoPlatform.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = EeegeoPlatform.mm; path = "../../../../../../../../../../git/eegeo-mobile/eegeo-stream-osx/EeegeoPlatform.mm"; sourceTree = "<group>"; };
+		1888870619B073B6006B323B /* libapps-on-maps-osx.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libapps-on-maps-osx.dylib"; path = "../../../../../../../../../../git/libapps-on-maps-osx.dylib"; sourceTree = "<group>"; };
+		1888870819B073F3006B323B /* libapps-on-maps-osx.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libapps-on-maps-osx.dylib"; path = "../../../../../../../../../../git/libapps-on-maps-osx.dylib"; sourceTree = "<group>"; };
+		1888870B19B0740D006B323B /* libapps-on-maps-osx.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libapps-on-maps-osx.dylib"; path = "../../../../../../../../../../git/libapps-on-maps-osx.dylib"; sourceTree = "<group>"; };
+		1888870D19B07424006B323B /* libhttpxx.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libhttpxx.dylib; path = "../../../../../../../../../../git/eegeo-mobile/libs/OSX/libhttpxx.dylib"; sourceTree = "<group>"; };
+		1888870F19B076F1006B323B /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Landscape@2x~ipad.png"; path = "../../../../../../../../../../git/eegeo-mobile/eegeo-stream-osx/Resources/OSX/Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
+		1888871019B076F1006B323B /* FrankBold50_A8_icons_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = FrankBold50_A8_icons_0.png; path = "../../../../../../../../../../git/eegeo-mobile/eegeo-stream-osx/Resources/OSX/FrankBold50_A8_icons_0.png"; sourceTree = "<group>"; };
+		1888871119B076F1006B323B /* FrankBold50_A8_icons.fnt */ = {isa = PBXFileReference; lastKnownFileType = text; name = FrankBold50_A8_icons.fnt; path = "../../../../../../../../../../git/eegeo-mobile/eegeo-stream-osx/Resources/OSX/FrankBold50_A8_icons.fnt"; sourceTree = "<group>"; };
+		1888871219B076F1006B323B /* IPAexGothic32_A8_icons_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = IPAexGothic32_A8_icons_0.png; path = "../../../../../../../../../../git/eegeo-mobile/eegeo-stream-osx/Resources/OSX/IPAexGothic32_A8_icons_0.png"; sourceTree = "<group>"; };
+		1888871319B076F1006B323B /* IPAexGothic32_A8_icons_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = IPAexGothic32_A8_icons_1.png; path = "../../../../../../../../../../git/eegeo-mobile/eegeo-stream-osx/Resources/OSX/IPAexGothic32_A8_icons_1.png"; sourceTree = "<group>"; };
+		1888871419B076F1006B323B /* IPAexGothic32_A8_icons_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = IPAexGothic32_A8_icons_2.png; path = "../../../../../../../../../../git/eegeo-mobile/eegeo-stream-osx/Resources/OSX/IPAexGothic32_A8_icons_2.png"; sourceTree = "<group>"; };
+		1888871519B076F1006B323B /* IPAexGothic32_A8_icons_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = IPAexGothic32_A8_icons_3.png; path = "../../../../../../../../../../git/eegeo-mobile/eegeo-stream-osx/Resources/OSX/IPAexGothic32_A8_icons_3.png"; sourceTree = "<group>"; };
+		1888871619B076F1006B323B /* IPAexGothic32_A8_icons_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = IPAexGothic32_A8_icons_4.png; path = "../../../../../../../../../../git/eegeo-mobile/eegeo-stream-osx/Resources/OSX/IPAexGothic32_A8_icons_4.png"; sourceTree = "<group>"; };
+		1888871719B076F1006B323B /* IPAexGothic32_A8_icons_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = IPAexGothic32_A8_icons_5.png; path = "../../../../../../../../../../git/eegeo-mobile/eegeo-stream-osx/Resources/OSX/IPAexGothic32_A8_icons_5.png"; sourceTree = "<group>"; };
+		1888871819B076F1006B323B /* IPAexGothic32_A8_icons_6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = IPAexGothic32_A8_icons_6.png; path = "../../../../../../../../../../git/eegeo-mobile/eegeo-stream-osx/Resources/OSX/IPAexGothic32_A8_icons_6.png"; sourceTree = "<group>"; };
+		1888871919B076F1006B323B /* IPAexGothic32_A8_icons.fnt */ = {isa = PBXFileReference; lastKnownFileType = text; name = IPAexGothic32_A8_icons.fnt; path = "../../../../../../../../../../git/eegeo-mobile/eegeo-stream-osx/Resources/OSX/IPAexGothic32_A8_icons.fnt"; sourceTree = "<group>"; };
+		1888871A19B076F1006B323B /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = placeholder.png; path = "../../../../../../../../../../git/eegeo-mobile/eegeo-stream-osx/Resources/OSX/placeholder.png"; sourceTree = "<group>"; };
 		E83DE6F019197F6A00EC97E1 /* OptionMenu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = OptionMenu.cpp; path = ../../../../CommonSrc/Util/OptionMenu.cpp; sourceTree = "<group>"; };
 		E83DE6F119197F6A00EC97E1 /* OptionMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OptionMenu.h; path = ../../../../CommonSrc/Util/OptionMenu.h; sourceTree = "<group>"; };
 		E83DE6F219197F6A00EC97E1 /* RenderProfiler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = RenderProfiler.cpp; path = ../../../../CommonSrc/Util/RenderProfiler.cpp; sourceTree = "<group>"; };
@@ -83,6 +134,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1888870719B073B6006B323B /* libapps-on-maps-osx.dylib in Frameworks */,
 				E8E0A58D1908619A0077EB8E /* libovr.a in Frameworks */,
 				E8E0A57A190860110077EB8E /* IOKit.framework in Frameworks */,
 				E8E0A57819085FE50077EB8E /* OpenGL.framework in Frameworks */,
@@ -108,6 +160,21 @@
 		E8CC57BE1908266300EEEC84 = {
 			isa = PBXGroup;
 			children = (
+				1888870F19B076F1006B323B /* Default-Landscape@2x~ipad.png */,
+				1888871019B076F1006B323B /* FrankBold50_A8_icons_0.png */,
+				1888871119B076F1006B323B /* FrankBold50_A8_icons.fnt */,
+				1888871219B076F1006B323B /* IPAexGothic32_A8_icons_0.png */,
+				1888871319B076F1006B323B /* IPAexGothic32_A8_icons_1.png */,
+				1888871419B076F1006B323B /* IPAexGothic32_A8_icons_2.png */,
+				1888871519B076F1006B323B /* IPAexGothic32_A8_icons_3.png */,
+				1888871619B076F1006B323B /* IPAexGothic32_A8_icons_4.png */,
+				1888871719B076F1006B323B /* IPAexGothic32_A8_icons_5.png */,
+				1888871819B076F1006B323B /* IPAexGothic32_A8_icons_6.png */,
+				1888871919B076F1006B323B /* IPAexGothic32_A8_icons.fnt */,
+				1888871A19B076F1006B323B /* placeholder.png */,
+				1888870D19B07424006B323B /* libhttpxx.dylib */,
+				1888870B19B0740D006B323B /* libapps-on-maps-osx.dylib */,
+				1888870819B073F3006B323B /* libapps-on-maps-osx.dylib */,
 				E8E0A589190861220077EB8E /* tinyxml2.cpp */,
 				E8E0A58A190861220077EB8E /* tinyxml2.h */,
 				E8E0A57B190861110077EB8E /* OculusWorldDemo_Scene.cpp */,
@@ -135,6 +202,7 @@
 		E8CC57C91908266300EEEC84 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1888870619B073B6006B323B /* libapps-on-maps-osx.dylib */,
 				E8E0A58C1908619A0077EB8E /* libovr.a */,
 				E8E0A579190860110077EB8E /* IOKit.framework */,
 				E8E0A57719085FE50077EB8E /* OpenGL.framework */,
@@ -167,6 +235,10 @@
 		E8E0A53919085E570077EB8E /* CommonSrc */ = {
 			isa = PBXGroup;
 			children = (
+				188886FB19AF91F5006B323B /* OVRToTouchAdaptor.h */,
+				188886FC19AF91F5006B323B /* OVRToTouchAdaptor.cpp */,
+				188886FD19AF91F5006B323B /* EegeoPlatform.h */,
+				188886FE19AF91F5006B323B /* EeegeoPlatform.mm */,
 				E83DE6F619197F6F00EC97E1 /* Util */,
 				E8E0A53A19085ED00077EB8E /* Platform */,
 				E8E0A55019085ED00077EB8E /* Render */,
@@ -221,6 +293,7 @@
 				E8CC57C31908266300EEEC84 /* Sources */,
 				E8CC57C41908266300EEEC84 /* Frameworks */,
 				E8CC57C51908266300EEEC84 /* Resources */,
+				1888870A19B073FA006B323B /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -263,6 +336,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1888871B19B076F1006B323B /* Default-Landscape@2x~ipad.png in Resources */,
+				1888871C19B076F1006B323B /* FrankBold50_A8_icons_0.png in Resources */,
+				1888871D19B076F1006B323B /* FrankBold50_A8_icons.fnt in Resources */,
+				1888871E19B076F1006B323B /* IPAexGothic32_A8_icons_0.png in Resources */,
+				1888871F19B076F1006B323B /* IPAexGothic32_A8_icons_1.png in Resources */,
+				1888872019B076F1006B323B /* IPAexGothic32_A8_icons_2.png in Resources */,
+				1888872119B076F1006B323B /* IPAexGothic32_A8_icons_3.png in Resources */,
+				1888872219B076F1006B323B /* IPAexGothic32_A8_icons_4.png in Resources */,
+				1888872319B076F1006B323B /* IPAexGothic32_A8_icons_5.png in Resources */,
+				1888872419B076F1006B323B /* IPAexGothic32_A8_icons_6.png in Resources */,
+				1888872519B076F1006B323B /* IPAexGothic32_A8_icons.fnt in Resources */,
+				1888872619B076F1006B323B /* placeholder.png in Resources */,
 				E879CFE9190866D1008CE996 /* Assets in Resources */,
 				E8859041192DBE2E00D93D73 /* ../../../../Oculus.icns in Resources */,
 			);
@@ -282,6 +367,8 @@
 				E8E0A56919085ED00077EB8E /* Platform.cpp in Sources */,
 				E8E0A56619085ED00077EB8E /* OSX_Gamepad.cpp in Sources */,
 				E8E0A57419085ED00077EB8E /* Render_XmlSceneLoader.cpp in Sources */,
+				1888870019AF91F5006B323B /* EeegeoPlatform.mm in Sources */,
+				188886FF19AF91F5006B323B /* OVRToTouchAdaptor.cpp in Sources */,
 				E8E0A57219085ED00077EB8E /* Render_LoadTextureDDS.cpp in Sources */,
 				E8E0A58B190861220077EB8E /* tinyxml2.cpp in Sources */,
 				E8E0A587190861120077EB8E /* Player.cpp in Sources */,
@@ -385,11 +472,13 @@
 					"$(SRCROOT)/../../../../../LibOVR/Src/",
 					"$(SRCROOT)/../../../../../LibOVR/Include/",
 					"$(SRCROOT)/../../../../../3rdParty/TinyXml/",
+					"/git/eegeo-mobile/platform/**",
 				);
 				INFOPLIST_FILE = "OculusWorldDemo-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../../../../../LibOVR/Lib/Mac/Xcode/$(CONFIGURATION)",
+					/git,
 				);
 				OBJROOT = "$(SRCROOT)/../../../Bin/Mac/Xcode/$(CONFIGURATION)";
 				ONLY_ACTIVE_ARCH = YES;
@@ -418,11 +507,13 @@
 					"$(SRCROOT)/../../../../../LibOVR/Src/",
 					"$(SRCROOT)/../../../../../LibOVR/Include/",
 					"$(SRCROOT)/../../../../../3rdParty/TinyXml/",
+					"/git/eegeo-mobile/platform/**",
 				);
 				INFOPLIST_FILE = "OculusWorldDemo-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../../../../../LibOVR/Lib/Mac/Xcode/$(CONFIGURATION)",
+					/git,
 				);
 				OBJROOT = "$(SRCROOT)/../../../Bin/Mac/Xcode/$(CONFIGURATION)";
 				ONLY_ACTIVE_ARCH = YES;
