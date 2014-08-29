@@ -271,6 +271,10 @@ static const OVR::KeyCode ModifierKeys[] = {OVR::Key_None, OVR::Key_Shift, OVR::
     switch ([ev type])
     {
         case NSLeftMouseDragged:
+        {
+            NSPoint p = [ev locationInWindow];
+            _App->OnMouseDragged(p.x, p.y, MapModifiers([ev modifierFlags]));
+        }
         case NSRightMouseDragged:
         case NSOtherMouseDragged:
         case NSMouseMoved:
@@ -294,6 +298,17 @@ static const OVR::KeyCode ModifierKeys[] = {OVR::Key_None, OVR::Key_Shift, OVR::
         }
         break;
         case NSLeftMouseDown:
+        {
+            NSPoint p = [ev locationInWindow];
+            _App->OnMouseDown(p.x, p.y, MapModifiers([ev modifierFlags]));
+            break;
+        }
+        case NSLeftMouseUp:
+        {
+            NSPoint p = [ev locationInWindow];
+            _App->OnMouseUp(p.x, p.y, MapModifiers([ev modifierFlags]));
+            break;
+        }
         case NSRightMouseDown:
         case NSOtherMouseDown:
             break;
