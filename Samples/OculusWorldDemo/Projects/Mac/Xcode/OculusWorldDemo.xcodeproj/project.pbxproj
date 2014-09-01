@@ -24,6 +24,7 @@
 		1888872419B076F1006B323B /* IPAexGothic32_A8_icons_6.png in Resources */ = {isa = PBXBuildFile; fileRef = 1888871819B076F1006B323B /* IPAexGothic32_A8_icons_6.png */; };
 		1888872519B076F1006B323B /* IPAexGothic32_A8_icons.fnt in Resources */ = {isa = PBXBuildFile; fileRef = 1888871919B076F1006B323B /* IPAexGothic32_A8_icons.fnt */; };
 		1888872619B076F1006B323B /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 1888871A19B076F1006B323B /* placeholder.png */; };
+		18FF403719B48562009D8E7C /* OVREegeoCameraController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18FF403519B48562009D8E7C /* OVREegeoCameraController.cpp */; };
 		E83DE6F419197F6A00EC97E1 /* OptionMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E83DE6F019197F6A00EC97E1 /* OptionMenu.cpp */; };
 		E83DE6F519197F6A00EC97E1 /* RenderProfiler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E83DE6F219197F6A00EC97E1 /* RenderProfiler.cpp */; };
 		E879CFE9190866D1008CE996 /* Assets in Resources */ = {isa = PBXBuildFile; fileRef = E879CFE8190866D1008CE996 /* Assets */; };
@@ -83,6 +84,8 @@
 		1888871819B076F1006B323B /* IPAexGothic32_A8_icons_6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = IPAexGothic32_A8_icons_6.png; path = "../../../../../../../../../../git/eegeo-mobile/eegeo-stream-osx/Resources/OSX/IPAexGothic32_A8_icons_6.png"; sourceTree = "<group>"; };
 		1888871919B076F1006B323B /* IPAexGothic32_A8_icons.fnt */ = {isa = PBXFileReference; lastKnownFileType = text; name = IPAexGothic32_A8_icons.fnt; path = "../../../../../../../../../../git/eegeo-mobile/eegeo-stream-osx/Resources/OSX/IPAexGothic32_A8_icons.fnt"; sourceTree = "<group>"; };
 		1888871A19B076F1006B323B /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = placeholder.png; path = "../../../../../../../../../../git/eegeo-mobile/eegeo-stream-osx/Resources/OSX/placeholder.png"; sourceTree = "<group>"; };
+		18FF403519B48562009D8E7C /* OVREegeoCameraController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OVREegeoCameraController.cpp; sourceTree = "<group>"; };
+		18FF403619B48562009D8E7C /* OVREegeoCameraController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OVREegeoCameraController.h; sourceTree = "<group>"; };
 		E83DE6F019197F6A00EC97E1 /* OptionMenu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = OptionMenu.cpp; path = ../../../../CommonSrc/Util/OptionMenu.cpp; sourceTree = "<group>"; };
 		E83DE6F119197F6A00EC97E1 /* OptionMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OptionMenu.h; path = ../../../../CommonSrc/Util/OptionMenu.h; sourceTree = "<group>"; };
 		E83DE6F219197F6A00EC97E1 /* RenderProfiler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = RenderProfiler.cpp; path = ../../../../CommonSrc/Util/RenderProfiler.cpp; sourceTree = "<group>"; };
@@ -242,6 +245,8 @@
 				E83DE6F619197F6F00EC97E1 /* Util */,
 				E8E0A53A19085ED00077EB8E /* Platform */,
 				E8E0A55019085ED00077EB8E /* Render */,
+				18FF403519B48562009D8E7C /* OVREegeoCameraController.cpp */,
+				18FF403619B48562009D8E7C /* OVREegeoCameraController.h */,
 			);
 			name = CommonSrc;
 			sourceTree = "<group>";
@@ -370,6 +375,7 @@
 				1888870019AF91F5006B323B /* EeegeoPlatform.mm in Sources */,
 				188886FF19AF91F5006B323B /* OVRToTouchAdaptor.cpp in Sources */,
 				E8E0A57219085ED00077EB8E /* Render_LoadTextureDDS.cpp in Sources */,
+				18FF403719B48562009D8E7C /* OVREegeoCameraController.cpp in Sources */,
 				E8E0A58B190861220077EB8E /* tinyxml2.cpp in Sources */,
 				E8E0A587190861120077EB8E /* Player.cpp in Sources */,
 				E8E0A56819085ED00077EB8E /* OSX_WavPlayer.cpp in Sources */,

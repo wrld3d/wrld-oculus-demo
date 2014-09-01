@@ -24,6 +24,7 @@ limitations under the License.
 #import "../Platform/OSX_PlatformObjc.h"
 #import "OVRToTouchAdaptor.h"
 #import "EegeoPlatform.h"
+#include "LatLongAltitude.h"
 
 using namespace OVR;
 using namespace OVR::OvrPlatform;
@@ -465,11 +466,19 @@ void* PlatformCore::SetupWindow(int w, int h)
     [view setApp:pApp];
     
     NSOpenGLPixelFormat* pixelFormat = [view getPixelFormat];
-    Eegeo::Platform* eegeoPlatform = new Eegeo::Platform(w, h, 1, 100, pixelFormat);
+    Eegeo::OVR::OVREegeoCameraController* cameraController = new Eegeo::OVR::OVREegeoCameraController(w, h);
+    pApp->SetOVREegeoCameraController(cameraController);
+    
+    Eegeo::Space::LatLongAltitude eyePosLla = Eegeo::Space::LatLongAltitude::FromDegrees(37.737354, -122.398407, 50.0);
+    Eegeo::Space::LatLongAltitude lookAtLla = Eegeo::Space::LatLongAltitude::FromDegrees(37.793466, -122.403129, 0.0);
+
+    cameraController->SetStartLatLongAltitude(eyePosLla, lookAtLla);
+
+    Eegeo::Platform* eegeoPlatform = new Eegeo::Platform(*cameraController, w, h, 1, 100, pixelFormat);
     pApp->SetEegeoPlatform(eegeoPlatform);
     
-    Eegeo::OVRToTouchAdaptor* theTouchAdaptor = new Eegeo::OVRToTouchAdaptor(eegeoPlatform->GetTouchController(), w, h);
-    pApp->SetOVRToTouchAdaptor(theTouchAdaptor);
+    eegeoPlatform->SetCamera(&cameraController->GetCamera());
+    
     
     Win = win;
     View = view;
