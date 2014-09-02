@@ -11,15 +11,6 @@ namespace Eegeo
 {
     namespace OVR
     {
-        namespace ZoomDirection
-        {
-            enum Values
-            {
-                In,
-                Out
-            };
-        }
-        
         namespace RotateDirection
         {
             enum Values
@@ -29,15 +20,28 @@ namespace Eegeo
             };
         }
         
+        namespace MoveDirection
+        {
+            enum Values
+            {
+                Forward,
+                Backwards,
+                Left,
+                Right,
+                Up,
+                Down
+            };
+        }
+        
         class OVREegeoCameraController : public Eegeo::Location::IInterestPointProvider, protected Eegeo::NonCopyable
         {
         public:
             OVREegeoCameraController(float screenWidth, float screenHeight)
-            : m_zooming(false)
-            , m_rotating(false)
+            : m_rotating(false)
+            , m_moving(false)
             , m_screenHeight(screenHeight)
             , m_screenWidth(screenWidth)
-            , m_zoomDirection(0.f)
+            , m_moveDirection(0.f, 0.f, 0.f)
             , m_rotateDirection(0.f)
             , m_ecefPosition(0.0, 0.0, 0.0)
             , m_fovDegrees(40.0)
@@ -47,11 +51,17 @@ namespace Eegeo
             
             ~OVREegeoCameraController() { };
             
-            Eegeo::dv3 GetEcefInterestPoint() const { return m_renderCamera.GetEcefLocation(); }
+            Eegeo::dv3 GetEcefInterestPoint() const;
+            double GetAltitudeAboveSeaLevel() const;
 
             Eegeo::Camera::RenderCamera& GetCamera() { return m_renderCamera; }
             const bool IsRotating() const { return m_rotating; }
-            const bool IsZooming() const { return m_zooming; }
+            const bool IsMoving() const { return m_moving; }
+
+            const v3 GetRight() const { return m_orientation.GetRow(0); }
+            const v3 GetUp() const { return m_orientation.GetRow(1); }
+            const v3 GetForward() const { return m_orientation.GetRow(2); }
+            
             void SetFovDegrees(float fovDegrees);
             
             void UpdateFromPose(const Eegeo::m33& orientation, const Eegeo::v3& eyeOffset);
@@ -60,25 +70,25 @@ namespace Eegeo
 
             void Update(float dt);
             
-            void MouseDown(float x, float y);
-            void MouseUp(float x, float y);
-            void MouseDrag(float x, float y);
-            void ZoomStart(ZoomDirection::Values direction);
-            void ZoomEnd();
+            void MoveStart(MoveDirection::Values direction);
+            void MoveEnd();
             void RotateStart(RotateDirection::Values direction);
             void RotateEnd();
         private:
-            void Zoom(float dt);
+            float MovementAltitudeMutlipler() const;
+            
             void Rotate(float dt);
+            void Move(float dt);
             void UpdateFovAndClippingPlanes();
 
-            bool m_zooming;
             bool m_rotating;
+            bool m_moving;
+            v3 m_moveDirection;
+            
             float m_fovDegrees;
             float m_rotation;
             float m_screenWidth;
             float m_screenHeight;
-            float m_zoomDirection;
             float m_rotateDirection;
             
             Eegeo::Camera::RenderCamera m_renderCamera;
