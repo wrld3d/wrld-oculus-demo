@@ -52,6 +52,7 @@ namespace Eegeo
             Eegeo::Camera::RenderCamera& GetCamera() { return m_renderCamera; }
             const bool IsRotating() const { return m_rotating; }
             const bool IsZooming() const { return m_zooming; }
+            void SetFovDegrees(float fovDegrees);
             
             void UpdateFromPose(const Eegeo::m33& orientation, const Eegeo::v3& eyeOffset);
             void SetEcefPosition(const Eegeo::dv3& ecef);

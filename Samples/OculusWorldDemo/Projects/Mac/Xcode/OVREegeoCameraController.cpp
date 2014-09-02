@@ -112,6 +112,12 @@ namespace Eegeo
             
         }
         
+        void OVREegeoCameraController::SetFovDegrees(float fovDegrees)
+        {
+            m_fovDegrees = fovDegrees;
+            UpdateFovAndClippingPlanes();
+        }
+        
         void OVREegeoCameraController::UpdateFovAndClippingPlanes()
         {
             double cameraAltitude = Space::SpaceHelpers::GetAltitude(m_renderCamera.GetEcefLocation());
