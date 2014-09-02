@@ -39,7 +39,6 @@ namespace Eegeo
         {
             m_ecefPosition = ecef;
             m_renderCamera.SetEcefLocation(m_ecefPosition);
-            UpdateFovAndClippingPlanes();
         }
         
         void OVREegeoCameraController::SetStartLatLongAltitude(const Eegeo::Space::LatLongAltitude& eyePos)
@@ -59,9 +58,7 @@ namespace Eegeo
         
         void OVREegeoCameraController::Update(float dt)
         {
-            Rotate(dt);
             Move(dt);
-            UpdateFovAndClippingPlanes();
         }
         
         void OVREegeoCameraController::MoveStart(MoveDirection::Values direction)
@@ -130,32 +127,27 @@ namespace Eegeo
             }
         }
         
-        void OVREegeoCameraController::RotateStart(RotateDirection::Values direction)
+        void OVREegeoCameraController::RotateHorizontal(float angle)
         {
-            if (!m_rotating)
+            dv3 up = m_ecefPosition.Norm();
+            
+            m33 rotation;
+            rotation.Rotate(up.ToSingle(),-angle);
+            m33::Mul(m_orientation, rotation, m_orientation);
+            if(m_moving)
             {
-                m_rotateDirection = direction == RotateDirection::Left ? 1.f : -1.f;
-                m_rotating = true;
-            }
-        }
-        
-        void OVREegeoCameraController::RotateEnd()
-        {
-            if (m_rotating)
-            {
-                m_rotating = false;
+                m_moveDirection = v3::Mul(m_moveDirection, rotation);
             }
         }
 
-        void OVREegeoCameraController::Rotate(float dt)
+        void OVREegeoCameraController::GetNearFarPlaneDistances(float& out_near, float& out_far)
         {
+            double cameraAltitude = GetAltitudeAboveSeaLevel();
+            double approxTerrainAltitude = 100;
+            double approxTerrainAltitudeDelta = approxTerrainAltitude - 100;
             
-        }
-        
-        void OVREegeoCameraController::SetFovDegrees(float fovDegrees)
-        {
-            m_fovDegrees = fovDegrees;
-            UpdateFovAndClippingPlanes();
+            const double ClipPlaneThresholdAltitude = 15000.0;
+            Camera::CameraHelpers::GetAltitudeInterpolatedNearFar(cameraAltitude, approxTerrainAltitude, approxTerrainAltitudeDelta, ClipPlaneThresholdAltitude, out_near, out_far);
         }
         
         float OVREegeoCameraController::MovementAltitudeMutlipler() const
@@ -170,20 +162,6 @@ namespace Eegeo
             double altitudeT = (clampedAltitude - minAltitude) / (maxAltitude - minAltitude);
             
             return minMultiplier + ((maxMultiplier - minMultiplier) * altitudeT);
-        }
-        
-        void OVREegeoCameraController::UpdateFovAndClippingPlanes()
-        {
-            double cameraAltitude = GetAltitudeAboveSeaLevel();
-            double approxTerrainAltitude = 100;
-            double approxTerrainAltitudeDelta = approxTerrainAltitude - 100;
-            
-            float nearZ;
-            float farZ;
-            const double ClipPlaneThresholdAltitude = 15000.0;
-            Camera::CameraHelpers::GetAltitudeInterpolatedNearFar(cameraAltitude, approxTerrainAltitude, approxTerrainAltitudeDelta, ClipPlaneThresholdAltitude, nearZ, farZ);
-            
-            m_renderCamera.SetProjection(Math::Deg2Rad(m_fovDegrees), nearZ, farZ);
         }
     }
 }
