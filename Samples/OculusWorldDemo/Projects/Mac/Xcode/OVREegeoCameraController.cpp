@@ -17,8 +17,8 @@ namespace Eegeo
             m33::Mul(orientationMatrix, m_orientation, orientation);
             
             v3 eyeOffsetModified = eyeOffset;
-            eyeOffsetModified.z *= -1.0; // inverted forward!?
-            v3 rotatedEyeOffset = v3::Mul(eyeOffsetModified, orientationMatrix);
+            eyeOffsetModified *= -1.0; // inverted forward!?
+            v3 rotatedEyeOffset = v3::Mul(eyeOffsetModified, m_orientation);
             
             m_renderCamera.SetOrientationMatrix(orientationMatrix);
             m_renderCamera.SetEcefLocation(dv3(m_ecefPosition.x + rotatedEyeOffset.x, m_ecefPosition.y + rotatedEyeOffset.y, m_ecefPosition.z + rotatedEyeOffset.z));
