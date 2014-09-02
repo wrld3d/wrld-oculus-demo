@@ -5,21 +5,22 @@
 #include "CameraHelpers.h"
 #include "SpaceHelpers.h"
 #include "EcefTangentBasis.h"
+#include "Quaternion.h"
 
 namespace Eegeo
 {
     namespace OVR
     {
-        void OVREegeoCameraController::UpdateFromPose(const Eegeo::m33& orientation, const Eegeo::v3 eyeOffset)
+        void OVREegeoCameraController::UpdateFromPose(const Eegeo::m33& orientation, const Eegeo::v3& eyeOffset)
         {
-            m33 newOrientation;
-            m33::Mul(newOrientation, m_orientation, orientation);
+            m33 orientationMatrix;
+            m33::Mul(orientationMatrix, m_orientation, orientation);
             
             v3 eyeOffsetModified = eyeOffset;
             eyeOffsetModified.z *= -1.0; // inverted forward!?
-            v3 rotatedEyeOffset = v3::Mul(eyeOffsetModified, newOrientation);
+            v3 rotatedEyeOffset = v3::Mul(eyeOffsetModified, orientationMatrix);
             
-            m_renderCamera.SetOrientationMatrix(newOrientation);
+            m_renderCamera.SetOrientationMatrix(orientationMatrix);
             m_renderCamera.SetEcefLocation(dv3(m_ecefPosition.x + rotatedEyeOffset.x, m_ecefPosition.y + rotatedEyeOffset.y, m_ecefPosition.z + rotatedEyeOffset.z));
         }
         
@@ -30,35 +31,19 @@ namespace Eegeo
             UpdateFovAndClippingPlanes();
         }
         
-        void OVREegeoCameraController::SetStartLatLongAltitude(const Eegeo::Space::LatLongAltitude& eyePos, const Eegeo::Space::LatLongAltitude lookAt)
+        void OVREegeoCameraController::SetStartLatLongAltitude(const Eegeo::Space::LatLongAltitude& eyePos)
         {
-            Space::LatLongAltitude interest = lookAt;
-            m_interestEcef = interest.ToECEF();
+            m_ecefPosition = eyePos.ToECEF();
             
-            Space::EcefTangentBasis cameraInterestBasis;
-            Camera::CameraHelpers::EcefTangentBasisFromPointAndHeading(interest.ToECEF(), 0, cameraInterestBasis);
+            Space::EcefTangentBasis tangentBasis;
+            Camera::CameraHelpers::EcefTangentBasisFromPointAndHeading(m_ecefPosition, 0.f, tangentBasis);
             
-            dv3 cameraLocationEcef;
-            v3 cameraDirection;
-            v3 cameraUp;
-            Camera::CameraHelpers::CalculateLookAt(interest.ToECEF(), cameraInterestBasis.GetForward(), Math::Deg2Rad(70.0f), 100, cameraLocationEcef, cameraDirection, cameraUp);
-            
-            Camera::CameraHelpers::CalculateCameraOrientation(cameraDirection, cameraUp, m_orientation);
+            m_orientation.SetRow(0, -tangentBasis.GetRight());
+            m_orientation.SetRow(1, -tangentBasis.GetUp());
+            m_orientation.SetRow(2, tangentBasis.GetForward());
             
             m_renderCamera.SetOrientationMatrix(m_orientation);
-            m_renderCamera.SetEcefLocation(cameraLocationEcef);
-            m_ecefPosition = cameraLocationEcef;
-            
-/*            dv3 eyePosEcef = eyePos.ToECEF();
-            dv3 lookAtEcef = lookAt.ToECEF();
-            
-            v3 up = eyePosEcef.Norm().ToSingle();
-            v3 forward = (lookAtEcef - eyePosEcef).Norm().ToSingle();
-            
-            m33 orientation;
-            Camera::CameraHelpers::CalculateCameraOrientation(forward, up, orientation);
-            m_renderCamera.SetOrientationMatrix(orientation);
-            SetEcefPosition(eyePosEcef); */
+            m_renderCamera.SetEcefLocation(m_ecefPosition);
         }
         
         void OVREegeoCameraController::Update(float dt)

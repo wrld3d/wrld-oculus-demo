@@ -53,9 +53,9 @@ namespace Eegeo
             const bool IsRotating() const { return m_rotating; }
             const bool IsZooming() const { return m_zooming; }
             
-            void UpdateFromPose(const Eegeo::m33& orientation, const Eegeo::v3 eyeOffset);
+            void UpdateFromPose(const Eegeo::m33& orientation, const Eegeo::v3& eyeOffset);
             void SetEcefPosition(const Eegeo::dv3& ecef);
-            void SetStartLatLongAltitude(const Eegeo::Space::LatLongAltitude& eyePos, const Eegeo::Space::LatLongAltitude lookAt);
+            void SetStartLatLongAltitude(const Eegeo::Space::LatLongAltitude& eyePos);
 
             void Update(float dt);
             
