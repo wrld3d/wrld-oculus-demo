@@ -469,7 +469,7 @@ void* PlatformCore::SetupWindow(int w, int h)
     Eegeo::OVR::OVREegeoCameraController* cameraController = new Eegeo::OVR::OVREegeoCameraController(w, h);
     pApp->SetOVREegeoCameraController(cameraController);
     
-    Eegeo::Space::LatLongAltitude eyePosLla = Eegeo::Space::LatLongAltitude::FromDegrees(40.761271, -73.980536, 165.0);
+    Eegeo::Space::LatLongAltitude eyePosLla = Eegeo::Space::LatLongAltitude::FromDegrees(37.7858,-122.401, 100);
 
     cameraController->SetStartLatLongAltitude(eyePosLla);
 

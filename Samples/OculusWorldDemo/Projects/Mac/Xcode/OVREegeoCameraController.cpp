@@ -13,8 +13,8 @@ namespace Eegeo
 {
     namespace OVR
     {
-        const float GravityAcceleration = 9.8f;
-        const float TerminalVelocity = 90.f;
+        const float GravityAcceleration = 15.0f;
+        const float TerminalVelocity = 500.f;
         
         Eegeo::dv3 OVREegeoCameraController::GetEcefInterestPoint() const
         {
