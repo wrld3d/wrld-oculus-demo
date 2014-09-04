@@ -51,6 +51,7 @@ namespace Eegeo
             const bool IsPlaying() const { return m_playing; }
             
             void Spew();
+            void Clear();
             
             void GetCurrentCameraPosition(dv3& interpolatedPositionEcef, m33& interpolatedOrientation) const;
         private:

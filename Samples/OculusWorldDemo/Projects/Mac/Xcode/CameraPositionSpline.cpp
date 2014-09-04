@@ -19,6 +19,14 @@ namespace Eegeo
             m_forwardSpline.AddPoint(dv3(forward.x, forward.y, forward.z));
         }
         
+        void CameraPositionSpline::Clear()
+        {
+            m_positionSpline.Clear();
+            m_rightSpline.Clear();
+            m_upSpline.Clear();
+            m_forwardSpline.Clear();
+        }
+        
         void CameraPositionSpline::Spew()
         {
             const std::vector<Geometry::CatmullRomSplinePoint>& rightPoints = m_rightSpline.GetPoints();
@@ -40,6 +48,10 @@ namespace Eegeo
         
         void CameraPositionSpline::Start()
         {
+            if(m_positionSpline.GetNumberOfPoints() == 0)
+            {
+                return;
+            }
             m_time = 0.0;
             m_playing = true;
         }
