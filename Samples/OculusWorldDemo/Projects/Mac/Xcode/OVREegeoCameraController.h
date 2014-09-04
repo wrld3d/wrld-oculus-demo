@@ -7,6 +7,7 @@
 #include "Space.h"
 #include "IInterestPointProvider.h"
 #include "TerrainHeightProvider.h"
+#include "CameraPositionSpline.h"
 
 namespace Eegeo
 {
@@ -49,10 +50,15 @@ namespace Eegeo
             Eegeo::Camera::RenderCamera& GetCamera() { return m_renderCamera; }
             const bool IsMoving() const { return m_moving; }
             const bool IsFalling() const { return m_falling; }
+            const bool IsFollowingSpline() const { return m_cameraPositionSpline.IsPlaying(); }
+            const dv3& GetCameraPosition() const { return m_ecefPosition; }
+            const m33& GetCameraOrientation() const { return m_orientation; }
             
             const v3 GetRight() const { return m_orientation.GetRow(0); }
             const v3 GetUp() const { return m_orientation.GetRow(1); }
             const v3 GetForward() const { return m_orientation.GetRow(2); }
+            
+            CameraPositionSpline& GetCameraPositionSpline() { return m_cameraPositionSpline; }
             
             void UpdateFromPose(const Eegeo::m33& orientation, const Eegeo::v3& eyeOffset);
             void SetEcefPosition(const Eegeo::dv3& ecef);
@@ -72,6 +78,8 @@ namespace Eegeo
             void SetTerrainHeightProvider(Eegeo::Resources::Terrain::Heights::TerrainHeightProvider * pTerrainHeightProvider) { m_pTerrainHeightProvider = pTerrainHeightProvider;}
             
         private:
+            bool CanAcceptUserInput() const;
+            
             float MovementAltitudeMutlipler() const;
             
             void Move(float dt);
@@ -89,6 +97,8 @@ namespace Eegeo
             
             Eegeo::Camera::RenderCamera m_renderCamera;
             Eegeo::Resources::Terrain::Heights::TerrainHeightProvider * m_pTerrainHeightProvider;
+            
+            CameraPositionSpline m_cameraPositionSpline;
             
             dv3 m_interestEcef;
             dv3 m_ecefPosition;

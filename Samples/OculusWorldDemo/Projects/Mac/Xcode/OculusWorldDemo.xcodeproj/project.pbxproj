@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		180927EC19B8829C00426F38 /* CameraPositionSpline.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 180927EA19B8829C00426F38 /* CameraPositionSpline.cpp */; };
 		188886FF19AF91F5006B323B /* OVRToTouchAdaptor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 188886FC19AF91F5006B323B /* OVRToTouchAdaptor.cpp */; };
 		1888870019AF91F5006B323B /* EeegeoPlatform.mm in Sources */ = {isa = PBXBuildFile; fileRef = 188886FE19AF91F5006B323B /* EeegeoPlatform.mm */; };
 		1888870719B073B6006B323B /* libapps-on-maps-osx.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1888870619B073B6006B323B /* libapps-on-maps-osx.dylib */; };
@@ -64,6 +65,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		180927EA19B8829C00426F38 /* CameraPositionSpline.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CameraPositionSpline.cpp; sourceTree = "<group>"; };
+		180927EB19B8829C00426F38 /* CameraPositionSpline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraPositionSpline.h; sourceTree = "<group>"; };
 		188886FB19AF91F5006B323B /* OVRToTouchAdaptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OVRToTouchAdaptor.h; path = "../../../../../../../../../../git/eegeo-mobile/eegeo-stream-osx/OVRToTouchAdaptor.h"; sourceTree = "<group>"; };
 		188886FC19AF91F5006B323B /* OVRToTouchAdaptor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = OVRToTouchAdaptor.cpp; path = "../../../../../../../../../../git/eegeo-mobile/eegeo-stream-osx/OVRToTouchAdaptor.cpp"; sourceTree = "<group>"; };
 		188886FD19AF91F5006B323B /* EegeoPlatform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EegeoPlatform.h; path = "../../../../../../../../../../git/eegeo-mobile/eegeo-stream-osx/EegeoPlatform.h"; sourceTree = "<group>"; };
@@ -247,6 +250,8 @@
 				E8E0A55019085ED00077EB8E /* Render */,
 				18FF403519B48562009D8E7C /* OVREegeoCameraController.cpp */,
 				18FF403619B48562009D8E7C /* OVREegeoCameraController.h */,
+				180927EA19B8829C00426F38 /* CameraPositionSpline.cpp */,
+				180927EB19B8829C00426F38 /* CameraPositionSpline.h */,
 			);
 			name = CommonSrc;
 			sourceTree = "<group>";
@@ -376,6 +381,7 @@
 				188886FF19AF91F5006B323B /* OVRToTouchAdaptor.cpp in Sources */,
 				E8E0A57219085ED00077EB8E /* Render_LoadTextureDDS.cpp in Sources */,
 				18FF403719B48562009D8E7C /* OVREegeoCameraController.cpp in Sources */,
+				180927EC19B8829C00426F38 /* CameraPositionSpline.cpp in Sources */,
 				E8E0A58B190861220077EB8E /* tinyxml2.cpp in Sources */,
 				E8E0A587190861120077EB8E /* Player.cpp in Sources */,
 				E8E0A56819085ED00077EB8E /* OSX_WavPlayer.cpp in Sources */,

@@ -62,9 +62,14 @@ namespace Eegeo
         
         void OVREegeoCameraController::Update(float dt)
         {
-            if(m_falling)
+            if(IsFalling())
             {
                 Fall(dt);
+            }
+            else if (IsFollowingSpline())
+            {
+                m_cameraPositionSpline.Update(dt);
+                m_cameraPositionSpline.GetCurrentCameraPosition(m_ecefPosition, m_orientation);
             }
             else
             {
@@ -72,9 +77,14 @@ namespace Eegeo
             }
         }
         
+        bool OVREegeoCameraController::CanAcceptUserInput() const
+        {
+            return (!(IsFalling() || IsFollowingSpline()));
+        }
+        
         void OVREegeoCameraController::MoveStart(MoveDirection::Values direction)
         {
-            if(m_falling)
+            if(!CanAcceptUserInput())
             {
                 return;
             }
@@ -144,7 +154,7 @@ namespace Eegeo
         
         void OVREegeoCameraController::RotateHorizontal(float angle)
         {
-            if(m_falling)
+            if(!CanAcceptUserInput())
             {
                 return;
             }
