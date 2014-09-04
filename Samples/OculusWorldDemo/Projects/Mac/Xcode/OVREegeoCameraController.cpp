@@ -7,11 +7,15 @@
 #include "EcefTangentBasis.h"
 #include "Quaternion.h"
 #include "EarthConstants.h"
+#include "MathFunc.h"
 
 namespace Eegeo
 {
     namespace OVR
     {
+        const float GravityAcceleration = 9.8f;
+        const float TerminalVelocity = 90.f;
+        
         Eegeo::dv3 OVREegeoCameraController::GetEcefInterestPoint() const
         {
             dv3 ecefPosition = m_ecefPosition;
@@ -58,11 +62,22 @@ namespace Eegeo
         
         void OVREegeoCameraController::Update(float dt)
         {
-            Move(dt);
+            if(m_falling)
+            {
+                Fall(dt);
+            }
+            else
+            {
+                Move(dt);
+            }
         }
         
         void OVREegeoCameraController::MoveStart(MoveDirection::Values direction)
         {
+            if(m_falling)
+            {
+                return;
+            }
             if (!m_moving)
             {
                 switch (direction)
@@ -129,6 +144,10 @@ namespace Eegeo
         
         void OVREegeoCameraController::RotateHorizontal(float angle)
         {
+            if(m_falling)
+            {
+                return;
+            }
             dv3 up = m_ecefPosition.Norm();
             
             m33 rotation;
@@ -162,6 +181,42 @@ namespace Eegeo
             double altitudeT = (clampedAltitude - minAltitude) / (maxAltitude - minAltitude);
             
             return minMultiplier + ((maxMultiplier - minMultiplier) * altitudeT);
+        }
+        
+        void OVREegeoCameraController::StartFall()
+        {
+            if(!m_falling)
+            {
+                m_falling = true;
+                m_currentFallSpeed = 0.0f;
+            }
+        }
+        
+        void OVREegeoCameraController::StopFall()
+        {
+            if(m_falling)
+            {
+                m_falling = false;
+            }
+        }
+        
+        void OVREegeoCameraController::Fall(float dt)
+        {
+            m_currentFallSpeed = Eegeo::Min(TerminalVelocity, m_currentFallSpeed + GravityAcceleration * dt);
+            
+            dv3 downVector = -m_ecefPosition.Norm();
+            
+            dv3 newEcefPosition = m_ecefPosition + (m_currentFallSpeed * dt * downVector);
+            float terrainHeight;
+            if(m_pTerrainHeightProvider->TryGetHeight(m_ecefPosition, 13, terrainHeight))
+            {
+                if((terrainHeight + 5) > (newEcefPosition.Length() - Space::EarthConstants::Radius))
+                {
+                    StopFall();
+                    return;
+                }
+            }
+            m_ecefPosition = newEcefPosition;
         }
     }
 }

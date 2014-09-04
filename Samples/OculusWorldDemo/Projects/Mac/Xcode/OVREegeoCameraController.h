@@ -6,6 +6,7 @@
 #include "VectorMathDecl.h"
 #include "Space.h"
 #include "IInterestPointProvider.h"
+#include "TerrainHeightProvider.h"
 
 namespace Eegeo
 {
@@ -34,6 +35,8 @@ namespace Eegeo
             , m_screenWidth(screenWidth)
             , m_moveDirection(0.f, 0.f, 0.f)
             , m_ecefPosition(0.0, 0.0, 0.0)
+            , m_falling(false)
+            , m_pTerrainHeightProvider(NULL)
             {
                 m_orientation.Identity();
             }
@@ -45,7 +48,8 @@ namespace Eegeo
 
             Eegeo::Camera::RenderCamera& GetCamera() { return m_renderCamera; }
             const bool IsMoving() const { return m_moving; }
-
+            const bool IsFalling() const { return m_falling; }
+            
             const v3 GetRight() const { return m_orientation.GetRow(0); }
             const v3 GetUp() const { return m_orientation.GetRow(1); }
             const v3 GetForward() const { return m_orientation.GetRow(2); }
@@ -60,11 +64,18 @@ namespace Eegeo
             void MoveStart(MoveDirection::Values direction);
             void MoveEnd();
             
+            void StartFall();
+            void StopFall();
+            
             void RotateHorizontal(float angle);
+            
+            void SetTerrainHeightProvider(Eegeo::Resources::Terrain::Heights::TerrainHeightProvider * pTerrainHeightProvider) { m_pTerrainHeightProvider = pTerrainHeightProvider;}
+            
         private:
             float MovementAltitudeMutlipler() const;
             
             void Move(float dt);
+            void Fall(float dt);
             void UpdateFovAndClippingPlanes();
 
             bool m_moving;
@@ -73,7 +84,11 @@ namespace Eegeo
             float m_screenWidth;
             float m_screenHeight;
             
+            float m_currentFallSpeed;
+            bool m_falling;
+            
             Eegeo::Camera::RenderCamera m_renderCamera;
+            Eegeo::Resources::Terrain::Heights::TerrainHeightProvider * m_pTerrainHeightProvider;
             
             dv3 m_interestEcef;
             dv3 m_ecefPosition;
