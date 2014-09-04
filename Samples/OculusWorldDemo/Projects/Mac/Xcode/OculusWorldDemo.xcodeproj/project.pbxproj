@@ -54,7 +54,7 @@
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
-			dstSubfolderSpec = 16;
+			dstSubfolderSpec = 6;
 			files = (
 				1888870E19B07424006B323B /* libhttpxx.dylib in CopyFiles */,
 				1888870C19B0740D006B323B /* libapps-on-maps-osx.dylib in CopyFiles */,
