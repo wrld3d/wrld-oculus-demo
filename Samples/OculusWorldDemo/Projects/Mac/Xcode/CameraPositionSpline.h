@@ -19,24 +19,20 @@ namespace Eegeo
             , m_time(0.0)
             {
                 m33 orientation;
-                orientation.SetFromBasis(Eegeo::v3(-0.181377,-0.110160,0.977223),Eegeo::v3(0.728775,0.652148,0.208780),Eegeo::v3(0.660294,-0.750046,0.038002));
-                AddPoint(Eegeo::dv3(4648172.292439,4159580.242028,1331625.804022), orientation);
-                orientation.SetFromBasis(Eegeo::v3(0.061158,-0.365653,0.928737),Eegeo::v3(0.728776,0.652152,0.208768),Eegeo::v3(0.682016,-0.664078,-0.306365));
-                AddPoint(Eegeo::dv3(4647918.212886,4159788.902805,1331710.577593), orientation);
-                orientation.SetFromBasis(Eegeo::v3(-0.221746,-0.063747,0.973017),Eegeo::v3(0.728776,0.652142,0.208809),Eegeo::v3(0.647856,-0.755416,0.098153));
-                AddPoint(Eegeo::dv3(4647929.349371,4160099.512685,1331821.951101), orientation);
-                orientation.SetFromBasis(Eegeo::v3(-0.004384,-0.300435,0.953790),Eegeo::v3(0.728779,0.652151,0.208770),Eegeo::v3(0.684737,-0.696021,-0.216091));
-                AddPoint(Eegeo::dv3(4647868.438146,4160170.536716,1331812.722798), orientation);
-                orientation.SetFromBasis(Eegeo::v3(-0.643567,0.756417,-0.116844),Eegeo::v3(0.728666,0.652228,0.208925),Eegeo::v3(-0.234246,-0.049319,0.970928));
-                AddPoint(Eegeo::dv3(4647672.783374,4160141.472382,1331674.231118), orientation);
-                orientation.SetFromBasis(Eegeo::v3(-0.416373,0.664006,-0.621070),Eegeo::v3(0.728615,0.652290,0.208909),Eegeo::v3(-0.543837,0.365536,0.755400));
-                AddPoint(Eegeo::dv3(4647572.540046,4160282.525131,1331583.460096), orientation);
-                orientation.SetFromBasis(Eegeo::v3(-0.170106,0.467721,-0.867352),Eegeo::v3(0.728587,0.652333,0.208879),Eegeo::v3(-0.663500,0.596408,0.451739));
-                AddPoint(Eegeo::dv3(4647853.716026,4160544.688893,1331627.942732), orientation);
-                orientation.SetFromBasis(Eegeo::v3(0.552680,-0.379914,-0.741760),Eegeo::v3(0.728579,0.652396,0.208715),Eegeo::v3(-0.404627,0.655780,-0.637363));
-                AddPoint(Eegeo::dv3(4647935.263351,4160641.274088,1331610.706218), orientation);
-                orientation.SetFromBasis(Eegeo::v3(-0.077166,-0.224347,0.971445),Eegeo::v3(0.728930,0.652075,0.208491),Eegeo::v3(0.680228,-0.724208,-0.113214));
-                AddPoint(Eegeo::dv3(4648349.368964,4159360.308238,1331560.434232), orientation);
+                orientation.SetFromBasis(Eegeo::v3(-0.003297,-0.301644,0.953413),Eegeo::v3(0.728825,0.652078,0.208825),Eegeo::v3(0.684698,-0.695559,-0.217691));
+                AddPoint(Eegeo::dv3(4645941.497602,4162308.552896,1332740.424752), orientation);
+                orientation.SetFromBasis(Eegeo::v3(-0.003297,-0.301644,0.953413),Eegeo::v3(0.728825,0.652078,0.208825),Eegeo::v3(0.684698,-0.695559,-0.217691));
+                AddPoint(Eegeo::dv3(4645462.385839,4162795.264665,1332892.752648), orientation);
+                orientation.SetFromBasis(Eegeo::v3(-0.003297,-0.301644,0.953413),Eegeo::v3(0.728825,0.652078,0.208825),Eegeo::v3(0.684698,-0.695559,-0.217691));
+                AddPoint(Eegeo::dv3(4644830.434319,4163437.240650,1333093.674132), orientation);
+                orientation.SetFromBasis(Eegeo::v3(-0.003297,-0.301644,0.953413),Eegeo::v3(0.728825,0.652078,0.208825),Eegeo::v3(0.684698,-0.695559,-0.217691));
+                AddPoint(Eegeo::dv3(4644237.010047,4164040.078239,1333282.346334), orientation);
+                orientation.SetFromBasis(Eegeo::v3(-0.003297,-0.301644,0.953413),Eegeo::v3(0.728825,0.652078,0.208825),Eegeo::v3(0.684698,-0.695559,-0.217691));
+                AddPoint(Eegeo::dv3(4643674.446370,4164611.565698,1333461.206776), orientation);
+                orientation.SetFromBasis(Eegeo::v3(0.622116,-0.501066,-0.601582),Eegeo::v3(0.727658,0.653615,0.208093),Eegeo::v3(-0.288928,0.567207,-0.771233));
+                AddPoint(Eegeo::dv3(4643271.400814,4164790.315370,1333528.008281), orientation);
+                orientation.SetFromBasis(Eegeo::v3(0.068765,0.233774,-0.969854),Eegeo::v3(0.727139,0.653852,0.209162),Eegeo::v3(-0.683033,0.719609,0.125021));
+                AddPoint(Eegeo::dv3(4643039.435598,4164606.450429,1333690.827047), orientation);
             }
             
             void AddPoint(const dv3& ecefEyePosition, const m33& orientation);

@@ -8,11 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		180927EC19B8829C00426F38 /* CameraPositionSpline.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 180927EA19B8829C00426F38 /* CameraPositionSpline.cpp */; };
+		187D2BA219B8A66E00E038F6 /* libapps-on-maps-osx.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 187D2BA119B8A66E00E038F6 /* libapps-on-maps-osx.dylib */; };
+		187D2BA319B8A6DE00E038F6 /* libapps-on-maps-osx.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 187D2BA119B8A66E00E038F6 /* libapps-on-maps-osx.dylib */; };
 		188886FF19AF91F5006B323B /* OVRToTouchAdaptor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 188886FC19AF91F5006B323B /* OVRToTouchAdaptor.cpp */; };
 		1888870019AF91F5006B323B /* EeegeoPlatform.mm in Sources */ = {isa = PBXBuildFile; fileRef = 188886FE19AF91F5006B323B /* EeegeoPlatform.mm */; };
-		1888870719B073B6006B323B /* libapps-on-maps-osx.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1888870619B073B6006B323B /* libapps-on-maps-osx.dylib */; };
-		1888870C19B0740D006B323B /* libapps-on-maps-osx.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1888870B19B0740D006B323B /* libapps-on-maps-osx.dylib */; };
-		1888870E19B07424006B323B /* libhttpxx.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1888870D19B07424006B323B /* libhttpxx.dylib */; };
 		1888871B19B076F1006B323B /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 1888870F19B076F1006B323B /* Default-Landscape@2x~ipad.png */; };
 		1888871C19B076F1006B323B /* FrankBold50_A8_icons_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 1888871019B076F1006B323B /* FrankBold50_A8_icons_0.png */; };
 		1888871D19B076F1006B323B /* FrankBold50_A8_icons.fnt in Resources */ = {isa = PBXBuildFile; fileRef = 1888871119B076F1006B323B /* FrankBold50_A8_icons.fnt */; };
@@ -55,10 +54,9 @@
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
-			dstSubfolderSpec = 6;
+			dstSubfolderSpec = 16;
 			files = (
-				1888870E19B07424006B323B /* libhttpxx.dylib in CopyFiles */,
-				1888870C19B0740D006B323B /* libapps-on-maps-osx.dylib in CopyFiles */,
+				187D2BA319B8A6DE00E038F6 /* libapps-on-maps-osx.dylib in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,13 +65,12 @@
 /* Begin PBXFileReference section */
 		180927EA19B8829C00426F38 /* CameraPositionSpline.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CameraPositionSpline.cpp; sourceTree = "<group>"; };
 		180927EB19B8829C00426F38 /* CameraPositionSpline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraPositionSpline.h; sourceTree = "<group>"; };
+		187D2BA119B8A66E00E038F6 /* libapps-on-maps-osx.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libapps-on-maps-osx.dylib"; path = "../../../../../../../../../../git/testing/libapps-on-maps-osx.dylib"; sourceTree = "<group>"; };
 		188886FB19AF91F5006B323B /* OVRToTouchAdaptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OVRToTouchAdaptor.h; path = "../../../../../../../../../../git/eegeo-mobile/eegeo-stream-osx/OVRToTouchAdaptor.h"; sourceTree = "<group>"; };
 		188886FC19AF91F5006B323B /* OVRToTouchAdaptor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = OVRToTouchAdaptor.cpp; path = "../../../../../../../../../../git/eegeo-mobile/eegeo-stream-osx/OVRToTouchAdaptor.cpp"; sourceTree = "<group>"; };
 		188886FD19AF91F5006B323B /* EegeoPlatform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EegeoPlatform.h; path = "../../../../../../../../../../git/eegeo-mobile/eegeo-stream-osx/EegeoPlatform.h"; sourceTree = "<group>"; };
 		188886FE19AF91F5006B323B /* EeegeoPlatform.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = EeegeoPlatform.mm; path = "../../../../../../../../../../git/eegeo-mobile/eegeo-stream-osx/EeegeoPlatform.mm"; sourceTree = "<group>"; };
 		1888870619B073B6006B323B /* libapps-on-maps-osx.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libapps-on-maps-osx.dylib"; path = "../../../../../../../../../../git/libapps-on-maps-osx.dylib"; sourceTree = "<group>"; };
-		1888870819B073F3006B323B /* libapps-on-maps-osx.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libapps-on-maps-osx.dylib"; path = "../../../../../../../../../../git/libapps-on-maps-osx.dylib"; sourceTree = "<group>"; };
-		1888870B19B0740D006B323B /* libapps-on-maps-osx.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libapps-on-maps-osx.dylib"; path = "../../../../../../../../../../git/libapps-on-maps-osx.dylib"; sourceTree = "<group>"; };
 		1888870D19B07424006B323B /* libhttpxx.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libhttpxx.dylib; path = "../../../../../../../../../../git/eegeo-mobile/libs/OSX/libhttpxx.dylib"; sourceTree = "<group>"; };
 		1888870F19B076F1006B323B /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Landscape@2x~ipad.png"; path = "../../../../../../../../../../git/eegeo-mobile/eegeo-stream-osx/Resources/OSX/Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
 		1888871019B076F1006B323B /* FrankBold50_A8_icons_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = FrankBold50_A8_icons_0.png; path = "../../../../../../../../../../git/eegeo-mobile/eegeo-stream-osx/Resources/OSX/FrankBold50_A8_icons_0.png"; sourceTree = "<group>"; };
@@ -140,7 +137,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1888870719B073B6006B323B /* libapps-on-maps-osx.dylib in Frameworks */,
+				187D2BA219B8A66E00E038F6 /* libapps-on-maps-osx.dylib in Frameworks */,
 				E8E0A58D1908619A0077EB8E /* libovr.a in Frameworks */,
 				E8E0A57A190860110077EB8E /* IOKit.framework in Frameworks */,
 				E8E0A57819085FE50077EB8E /* OpenGL.framework in Frameworks */,
@@ -179,8 +176,6 @@
 				1888871919B076F1006B323B /* IPAexGothic32_A8_icons.fnt */,
 				1888871A19B076F1006B323B /* placeholder.png */,
 				1888870D19B07424006B323B /* libhttpxx.dylib */,
-				1888870B19B0740D006B323B /* libapps-on-maps-osx.dylib */,
-				1888870819B073F3006B323B /* libapps-on-maps-osx.dylib */,
 				E8E0A589190861220077EB8E /* tinyxml2.cpp */,
 				E8E0A58A190861220077EB8E /* tinyxml2.h */,
 				E8E0A57B190861110077EB8E /* OculusWorldDemo_Scene.cpp */,
@@ -208,6 +203,7 @@
 		E8CC57C91908266300EEEC84 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				187D2BA119B8A66E00E038F6 /* libapps-on-maps-osx.dylib */,
 				1888870619B073B6006B323B /* libapps-on-maps-osx.dylib */,
 				E8E0A58C1908619A0077EB8E /* libovr.a */,
 				E8E0A579190860110077EB8E /* IOKit.framework */,
@@ -491,6 +487,7 @@
 					"$(inherited)",
 					"$(SRCROOT)/../../../../../LibOVR/Lib/Mac/Xcode/$(CONFIGURATION)",
 					/git,
+					/git/testing,
 				);
 				OBJROOT = "$(SRCROOT)/../../../Bin/Mac/Xcode/$(CONFIGURATION)";
 				ONLY_ACTIVE_ARCH = YES;
@@ -526,6 +523,7 @@
 					"$(inherited)",
 					"$(SRCROOT)/../../../../../LibOVR/Lib/Mac/Xcode/$(CONFIGURATION)",
 					/git,
+					/git/testing,
 				);
 				OBJROOT = "$(SRCROOT)/../../../Bin/Mac/Xcode/$(CONFIGURATION)";
 				ONLY_ACTIVE_ARCH = YES;
