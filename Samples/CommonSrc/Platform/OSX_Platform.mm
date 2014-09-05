@@ -22,7 +22,6 @@ limitations under the License.
 ************************************************************************************/
 
 #import "../Platform/OSX_PlatformObjc.h"
-#import "OVRToTouchAdaptor.h"
 #import "EegeoPlatform.h"
 #include "LatLongAltitude.h"
 

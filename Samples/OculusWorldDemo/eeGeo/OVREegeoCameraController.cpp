@@ -184,7 +184,7 @@ namespace Eegeo
             const double minAltitude = 300.0;
             const double maxAltitude = 8000.0;
             
-            const double minMultiplier = 100.f;
+            const double minMultiplier = 30.f;
             const double maxMultiplier = 10000.f;
             
             double clampedAltitude = Math::Clamp(GetAltitudeAboveSeaLevel(), minAltitude, maxAltitude);

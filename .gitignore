@@ -1,3 +1,5 @@
 **/xcuserdata/
 LibOVR/Lib/Mac/Xcode/
 Samples/OculusWorldDemo/Bin/
+eegeo-platform/
+*.cache
