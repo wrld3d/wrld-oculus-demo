@@ -28,7 +28,6 @@ namespace Eegeo
     , m_pOSXLocationService(NULL)
     , m_pOSXNativeUIFactories(NULL)
     , m_pOSXPlatformAbstractionModule(NULL)
-    , m_terrainHeightProvider(m_terrainHeightRepository)
     , m_night(false)
     , m_nightTParam(0.f)
     , m_currentClearColor(dayClearColor)
@@ -55,11 +54,11 @@ namespace Eegeo
         OSX::OSXKeyboardInputFactory* keyboardInputFactory = new OSX::OSXKeyboardInputFactory();
         
         m_pOSXNativeUIFactories = new UI::NativeUIFactories(*alertBox, *inputBox, *keyboardInputFactory);
-        
+
         m_pOSXPlatformAbstractionModule = new Eegeo::OSX::OSXPlatformAbstractionModule(m_pRenderContext->GetGLState(),
                                                                                        *m_pJpegLoader,
                                                                                        pPixelFormat,
-                                                                                       "/Users/kimbleoperations/Desktop/oculusdk2/OculusSDKSanitized/Samples/OculusWorldDemo/Assets/eeGeo/");
+                                                                                       "OculusWorldDemo.app/Contents/Resources/Assets/eeGeo/");
         const std::string apiKey = "5d251555072dbe44979bdd6613fbec76";
 
         m_pWorld = new Eegeo::EegeoWorld(apiKey,

@@ -31,7 +31,7 @@ namespace Eegeo
         
         const v3& GetClearColor() { return m_currentClearColor; }
         
-        Resources::Terrain::Heights::TerrainHeightProvider& GetTerrainHeightProvider() { return m_terrainHeightProvider;}
+        Resources::Terrain::Heights::TerrainHeightProvider& GetTerrainHeightProvider() { return m_pWorld->GetTerrainHeightProvider();}
     private:
         Eegeo::Blitter* m_pBlitter;
         Eegeo::Helpers::Jpeg::IJpegLoader* m_pJpegLoader;
@@ -39,9 +39,6 @@ namespace Eegeo
         Eegeo::Location::ILocationService* m_pOSXLocationService;
         UI::NativeUIFactories* m_pOSXNativeUIFactories;
         Eegeo::OSX::OSXPlatformAbstractionModule * m_pOSXPlatformAbstractionModule;
-        
-        Eegeo::Resources::Terrain::Heights::TerrainHeightRepository m_terrainHeightRepository;
-        Eegeo::Resources::Terrain::Heights::TerrainHeightProvider m_terrainHeightProvider;
         
         Eegeo::EegeoWorld* m_pWorld;
         
