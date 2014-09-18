@@ -12,6 +12,9 @@
 #include "OSXLocationService.h"
 #include "GlobalFogging.h"
 #include "StreamingVolumeController.h"
+#include "PackedRenderableFilter.h"
+#include "PlaceNamesViewFilter.h"
+#include "RoadNamesRenderableFilter.h"
 
 #include <Cocoa/Cocoa.h>
 
@@ -82,6 +85,10 @@ namespace Eegeo
         
         // Uses altitude LOD refinement up until first level with buildings, from there it does distance based LOD selection
         m_pWorld->GetStreamingVolumeController().setDeepestLevelForAltitudeLodRefinement(12);
+        
+        m_pWorld->GetShadowPresentationModule().GetShadowRenderableFilter().SetEnabled(false);
+        m_pWorld->GetPlaceNamesPresentationModule().GetPlaceNamesViewFilter().SetEnabled(false);
+        m_pWorld->GetTransportPresentationModule().GetRoadNamesRenderableFilter().SetEnabled(false);
         
         m_pRenderContext->GetGLState().InvalidateAll();
     }
