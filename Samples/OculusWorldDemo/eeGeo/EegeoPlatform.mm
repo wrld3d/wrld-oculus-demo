@@ -10,6 +10,8 @@
 #include "MathFunc.h"
 #include "RenderContext.h"
 #include "OSXLocationService.h"
+#include "GlobalFogging.h"
+#include "StreamingVolumeController.h"
 
 #include <Cocoa/Cocoa.h>
 
@@ -78,6 +80,9 @@ namespace Eegeo
         
         m_pOSXPlatformAbstractionModule->SetWebRequestServiceWorkPool(m_pWorld->GetWorkPool());
         
+        // Uses altitude LOD refinement up until first level with buildings, from there it does distance based LOD selection
+        m_pWorld->GetStreamingVolumeController().setDeepestLevelForAltitudeLodRefinement(12);
+        
         m_pRenderContext->GetGLState().InvalidateAll();
     }
     
@@ -97,6 +102,15 @@ namespace Eegeo
         m_nightTParam += dt;
         m_nightTParam = Math::Clamp01(m_nightTParam);
         m_currentClearColor = v3::Lerp(m_startClearColor, m_destClearColor, m_nightTParam);
+    }
+    
+    void Platform::UpdateFogging()
+    {
+        m_pWorld->GetGlobalFogging().SetHeightFogIntensity(0.0f);
+        m_pWorld->GetGlobalFogging().SetDistanceFogIntensity(1.0f);
+        m_pWorld->GetGlobalFogging().SetDistanceFogDistances(m_foggingFar - 500.0f, m_foggingFar);
+        m_pWorld->GetGlobalFogging().SetFogColour(Eegeo::v4(m_currentClearColor,1.0f));
+        m_pWorld->GetGlobalFogging().SetFogDensity(1.0f);
     }
     
     void Platform::ToggleNight()
@@ -131,6 +145,7 @@ namespace Eegeo
         m_pWorld->EarlyUpdate(dt);
         m_pWorld->Update(dt);
         UpdateNightTParam(dt);
+        UpdateFogging();
     }
     
     void Platform::SetCamera(Camera::RenderCamera* camera)
@@ -142,5 +157,10 @@ namespace Eegeo
     {
         m_pWorld->SetCamera(camera);
         m_pWorld->Draw(dt);
+    }
+    
+    void Platform::SetFoggingFar(float far)
+    {
+        m_foggingFar = far;
     }
 }

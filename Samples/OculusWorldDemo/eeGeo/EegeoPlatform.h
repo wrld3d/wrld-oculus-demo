@@ -25,6 +25,8 @@ namespace Eegeo
         void Update(float dt);
         void Draw(float dt, Camera::RenderCamera* camera);
         
+        void SetFoggingFar(float far);
+        
         void SetCamera(Camera::RenderCamera* camera);
         void ToggleStreaming();
         void ToggleNight();
@@ -43,8 +45,10 @@ namespace Eegeo
         Eegeo::EegeoWorld* m_pWorld;
         
         void UpdateNightTParam(float dt);
+        void UpdateFogging();
         bool m_night;
         float m_nightTParam;
+        float m_foggingFar;
         v3 m_currentClearColor;
         v3 m_startClearColor;
         v3 m_destClearColor;

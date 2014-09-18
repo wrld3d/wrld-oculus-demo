@@ -218,7 +218,7 @@ namespace Eegeo
             
             dv3 newEcefPosition = m_ecefPosition + (m_currentFallSpeed * dt * downVector);
             float terrainHeight;
-            if(m_pTerrainHeightProvider->TryGetHeight(m_ecefPosition, 13, terrainHeight))
+            if(m_pTerrainHeightProvider->TryGetHeight(m_ecefPosition, 11, terrainHeight))
             {
                 if((terrainHeight + 5) > (newEcefPosition.Length() - Space::EarthConstants::Radius))
                 {
