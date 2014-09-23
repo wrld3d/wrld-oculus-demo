@@ -78,8 +78,8 @@ namespace Eegeo
                                          config,
                                          NULL,
                                          "Default-Landscape@2x~ipad.png",
-                                         "http://cdn1.eegeo.com/coverage-trees/v417/manifest.txt.gz",
-                                         "http://d2xvsc8j92rfya.cloudfront.net/mobile-themes-new/v193/manifest.txt.gz");
+                                         "http://cdn1.eegeo.com/coverage-trees/v427_zdc/manifest.txt.gz",
+                                         "http://d2xvsc8j92rfya.cloudfront.net/mobile-themes-new/v203/manifest.txt.gz");
         
         m_pOSXPlatformAbstractionModule->SetWebRequestServiceWorkPool(m_pWorld->GetWorkPool());
         
