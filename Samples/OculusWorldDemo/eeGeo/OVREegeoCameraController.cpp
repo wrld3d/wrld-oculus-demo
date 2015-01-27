@@ -27,6 +27,19 @@ namespace Eegeo
             return Space::SpaceHelpers::GetAltitude(m_renderCamera.GetEcefLocation());
         }
         
+        void OVREegeoCameraController::SetProjectionMatrix(Eegeo::m44& projection)
+        {
+            m_renderCamera.SetProjectionMatrix(projection);
+        }
+        
+        Camera::CameraState OVREegeoCameraController::GetCameraState() const
+        {
+            return Camera::CameraState(m_renderCamera.GetEcefLocation(),
+                                       GetEcefInterestPoint(),
+                                       m_renderCamera.GetViewMatrix(),
+                                       m_renderCamera.GetProjectionMatrix());
+        }
+        
         void OVREegeoCameraController::UpdateFromPose(const Eegeo::m33& orientation, const Eegeo::v3& eyeOffset)
         {
             m33 orientationMatrix;

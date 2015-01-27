@@ -8,6 +8,7 @@
 #include "IInterestPointProvider.h"
 #include "TerrainHeightProvider.h"
 #include "CameraPositionSpline.h"
+#include "CameraState.h"
 
 namespace Eegeo
 {
@@ -60,6 +61,7 @@ namespace Eegeo
             
             CameraPositionSpline& GetCameraPositionSpline() { return m_cameraPositionSpline; }
             
+            void SetProjectionMatrix(Eegeo::m44& projection);
             void UpdateFromPose(const Eegeo::m33& orientation, const Eegeo::v3& eyeOffset);
             void SetEcefPosition(const Eegeo::dv3& ecef);
             void SetStartLatLongAltitude(const Eegeo::Space::LatLongAltitude& eyePos);
@@ -76,6 +78,8 @@ namespace Eegeo
             void RotateHorizontal(float angle);
             
             void SetTerrainHeightProvider(Eegeo::Resources::Terrain::Heights::TerrainHeightProvider * pTerrainHeightProvider) { m_pTerrainHeightProvider = pTerrainHeightProvider;}
+            
+            Camera::CameraState GetCameraState() const;
             
         private:
             bool CanAcceptUserInput() const;

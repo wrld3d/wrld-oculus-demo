@@ -472,10 +472,10 @@ void* PlatformCore::SetupWindow(int w, int h)
 
     cameraController->SetStartLatLongAltitude(eyePosLla);
 
-    Eegeo::Platform* eegeoPlatform = new Eegeo::Platform(*cameraController, w, h, 1, 100, pixelFormat);
+    Eegeo::Rendering::ScreenProperties properties(w, h, 1, 100);
+    Eegeo::Platform* eegeoPlatform = new Eegeo::Platform(properties, pixelFormat);
     pApp->SetEegeoPlatform(eegeoPlatform);
-    
-    eegeoPlatform->SetCamera(&cameraController->GetCamera());
+    pApp->OnResize(w, h);
     
     cameraController->SetTerrainHeightProvider(&(eegeoPlatform->GetTerrainHeightProvider()));
     
