@@ -26,7 +26,7 @@
 #include "CameraFrustumStreamingVolume.h"
 #include "OVREegeoCameraController.h"
 
-#import <OpenGL/OpenGL.h>
+//#import <OpenGL/OpenGL.h>
 #import <Cocoa/Cocoa.h>
 
 namespace Eegeo

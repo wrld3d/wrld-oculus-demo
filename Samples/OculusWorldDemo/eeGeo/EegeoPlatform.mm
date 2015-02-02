@@ -104,7 +104,7 @@ namespace Eegeo
                                                                                        mapModule.GetEnvironmentFlatteningService());
         
         // Uses altitude LOD refinement up until first level with buildings, from there it does distance based LOD selection
-        m_pStreamingVolume->setDeepestLevelForAltitudeLodRefinement(12);
+        m_pStreamingVolume->setDeepestLevelForAltitudeLodRefinement(11);
         
         m_pWorld->GetMapModule().GetShadowPresentationModule().GetShadowRenderableFilter().SetEnabled(false);
         m_pWorld->GetMapModule().GetPlaceNamesPresentationModule().GetPlaceNamesViewFilter().SetEnabled(false);
