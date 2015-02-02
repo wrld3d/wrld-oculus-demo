@@ -54,6 +54,8 @@ namespace Eegeo
         
         ITouchController& GetTouchController();
     private:
+        void UpdateLoadingScreen(float dt);
+        
         Eegeo::Blitter* m_pBlitter;
         Eegeo::Helpers::Jpeg::IJpegLoader* m_pJpegLoader;
         Eegeo::Location::ILocationService* m_pOSXLocationService;
@@ -64,6 +66,8 @@ namespace Eegeo
         Eegeo::Streaming::CameraFrustumStreamingVolume* m_pStreamingVolume;
                 
         Eegeo::EegeoWorld* m_pWorld;
+        
+        Eegeo::Rendering::LoadingScreen* m_pLoadingScreen;
         
         void UpdateNightTParam(float dt);
         void UpdateFogging();

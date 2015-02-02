@@ -30,10 +30,40 @@
 #include "MapModule.h"
 #include "TerrainModelModule.h"
 #include "LightingModule.h"
+#include "LoadingScreen.h"
 
 #include "PackedRenderableFilter.h"
 #include "PlaceNamesViewFilter.h"
 #include "RoadNamesRenderableFilter.h"
+
+namespace
+{
+    Eegeo::Rendering::LoadingScreen* CreateLoadingScreen(const Eegeo::Modules::Core::RenderingModule& renderingModule,
+                                                         Eegeo::Helpers::ITextureFileLoader& textureFileLoader,
+                                                         const Eegeo::Rendering::ScreenProperties& screenProperties)
+    {
+        Eegeo::Rendering::LoadingScreenConfig loadingScreenConfig;
+        loadingScreenConfig.loadingBarBackgroundColor = Eegeo::v4(0.45f, 0.7f, 1.0f, 1.0f);
+        loadingScreenConfig.fadeOutDurationSeconds = 1.5f;
+        loadingScreenConfig.screenWidth = screenProperties.GetScreenWidth();
+        loadingScreenConfig.screenHeight = screenProperties.GetScreenHeight();
+        loadingScreenConfig.backgroundColor = Eegeo::v4(132.f/255.f, 203.f/255.f, 235.f/255.f, 1.f);
+        loadingScreenConfig.loadingBarOffset = Eegeo::v2(0.5f, 0.1f);
+        loadingScreenConfig.layout = Eegeo::Rendering::LoadingScreenLayout::Centred;
+        
+        
+        Eegeo::Rendering::LoadingScreen* pLoadingScreen = Eegeo::Rendering::LoadingScreen::Create("SplashScreen-1024x768.png",
+                                                                                                  loadingScreenConfig,
+                                                                                                  renderingModule.GetShaderIdGenerator(),
+                                                                                                  renderingModule.GetMaterialIdGenerator(),
+                                                                                                  renderingModule.GetGlBufferPool(),
+                                                                                                  renderingModule.GetVertexLayoutPool(),
+                                                                                                  renderingModule.GetVertexBindingPool(),
+                                                                                                  textureFileLoader);
+        
+        return pLoadingScreen;
+    }
+}
 
 namespace Eegeo
 {
@@ -52,6 +82,7 @@ namespace Eegeo
     , m_currentClearColor(dayClearColor)
     , m_startClearColor(nightClearColor)
     , m_destClearColor(dayClearColor)
+    , m_pLoadingScreen(NULL)
     {
         Eegeo::TtyHandler::TtyEnabled = true;
 
@@ -102,6 +133,8 @@ namespace Eegeo
                                                                                        Eegeo::Config::LodRefinementConfig::GetLodRefinementAltitudesForDeviceSpec(config.PerformanceConfig.DeviceSpecification),
                                                                                        Eegeo::Streaming::QuadTreeCube::MAX_DEPTH_TO_VISIT,
                                                                                        mapModule.GetEnvironmentFlatteningService());
+
+        m_pLoadingScreen = CreateLoadingScreen(m_pWorld->GetRenderingModule(), m_pOSXPlatformAbstractionModule->GetTextureFileLoader(), screenProperties);
         
         // Uses altitude LOD refinement up until first level with buildings, from there it does distance based LOD selection
         m_pStreamingVolume->setDeepestLevelForAltitudeLodRefinement(11);
@@ -115,6 +148,7 @@ namespace Eegeo
     Platform::~Platform()
     {
         m_pWorld->OnPause();
+        delete m_pLoadingScreen;
         delete m_pWorld;
         delete m_pOSXPlatformAbstractionModule;
         delete m_pOSXNativeUIFactories;
@@ -126,6 +160,11 @@ namespace Eegeo
     void Platform::NotifyScreenPropertiesChanged(const Eegeo::Rendering::ScreenProperties& screenProperties)
     {
         m_screenProperties = screenProperties;
+        
+        if (m_pLoadingScreen != NULL)
+        {
+            m_pLoadingScreen->NotifyScreenDimensionsChanged(m_screenProperties.GetScreenWidth(), m_screenProperties.GetScreenHeight());
+        }
     }
     
     void Platform::Update(float dt, Eegeo::OVR::OVREegeoCameraController& ovrCamera)
@@ -158,6 +197,7 @@ namespace Eegeo
         
         UpdateNightTParam(dt);
         UpdateFogging();
+        UpdateLoadingScreen(dt);
     }
     
     
@@ -169,7 +209,33 @@ namespace Eegeo
                                               cameraState.ViewMatrix(),
                                               cameraState.ProjectionMatrix(),
                                               m_screenProperties);
+        
         m_pWorld->Draw(drawParams);
+
+        if (m_pLoadingScreen != NULL)
+        {
+            m_pLoadingScreen->Draw();
+        }
+    }
+    
+    void Platform::UpdateLoadingScreen(float dt)
+    {
+        if (m_pLoadingScreen == NULL)
+            return;
+        
+        if (!m_pWorld->Initialising() && !m_pLoadingScreen->IsDismissed())
+        {
+            m_pLoadingScreen->Dismiss();
+        }
+        
+        m_pLoadingScreen->SetProgress(m_pWorld->GetInitialisationProgress());
+        m_pLoadingScreen->Update(dt);
+        
+        if (!m_pLoadingScreen->IsVisible())
+        {
+            Eegeo_DELETE m_pLoadingScreen;
+            m_pLoadingScreen = NULL;
+        }
     }
     
     void Platform::UpdateNightTParam(float dt)
