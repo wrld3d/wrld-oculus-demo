@@ -33,8 +33,10 @@
 		E8E0A58B190861220077EB8E /* tinyxml2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E8E0A589190861220077EB8E /* tinyxml2.cpp */; };
 		EE7D101E1A837F4500E63118 /* RobotArm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE7D101C1A837F4500E63118 /* RobotArm.cpp */; };
 		EE8D30E61A811EC9009696A0 /* libovr.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EE8D30D41A811E18009696A0 /* libovr.a */; };
-		EE8D30E71A814346009696A0 /* libapps-on-maps-osx.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EE8D30E01A811E20009696A0 /* libapps-on-maps-osx.dylib */; };
-		EE8D30F11A8145ED009696A0 /* libhttpxx.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EE8D30F01A8145ED009696A0 /* libhttpxx.dylib */; };
+		EE9AC29A1A83B37D00F77538 /* libapps-on-maps-osx.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1802C9F719B9A87B003D4E4E /* libapps-on-maps-osx.dylib */; };
+		EE9AC29C1A83B5B300F77538 /* libapps-on-maps-osx.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1802C9F719B9A87B003D4E4E /* libapps-on-maps-osx.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		EE9AC2A01A83B5F100F77538 /* libhttpxx.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 183C005A19B8BBFA00F8AB26 /* libhttpxx.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		EE9AC2A11A83B62600F77538 /* libhttpxx.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 183C005A19B8BBFA00F8AB26 /* libhttpxx.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,40 +47,12 @@
 			remoteGlobalIDString = E82D4CD31906FE640070CB3F;
 			remoteInfo = LibOVR;
 		};
-		EE8D30DB1A811E20009696A0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EE8D30D51A811E1F009696A0 /* apps-on-maps.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 7E1A38F21670AC4600690512;
-			remoteInfo = "apps-on-maps";
-		};
-		EE8D30DD1A811E20009696A0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EE8D30D51A811E1F009696A0 /* apps-on-maps.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 22967D80194736B90006C64A;
-			remoteInfo = "apps-on-maps-cpp11";
-		};
-		EE8D30DF1A811E20009696A0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EE8D30D51A811E1F009696A0 /* apps-on-maps.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 22096E4E1998B4FB003BD367;
-			remoteInfo = "apps-on-maps-osx";
-		};
 		EE8D30E11A811E3A009696A0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = EE8D30CF1A811E18009696A0 /* LibOVR.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = E82D4CD21906FE640070CB3F;
 			remoteInfo = LibOVR;
-		};
-		EE8D30E31A811E3D009696A0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EE8D30D51A811E1F009696A0 /* apps-on-maps.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 22096E4D1998B4FB003BD367;
-			remoteInfo = "apps-on-maps-osx";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -87,8 +61,10 @@
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 12;
 			dstPath = "";
-			dstSubfolderSpec = 10;
+			dstSubfolderSpec = 16;
 			files = (
+				EE9AC2A01A83B5F100F77538 /* libhttpxx.dylib in CopyFiles */,
+				EE9AC29C1A83B5B300F77538 /* libapps-on-maps-osx.dylib in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,9 +126,6 @@
 		EE7D101C1A837F4500E63118 /* RobotArm.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RobotArm.cpp; sourceTree = "<group>"; };
 		EE7D101D1A837F4500E63118 /* RobotArm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotArm.h; sourceTree = "<group>"; };
 		EE8D30CF1A811E18009696A0 /* LibOVR.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LibOVR.xcodeproj; path = ../../../../../LibOVR/Projects/Mac/Xcode/LibOVR.xcodeproj; sourceTree = "<group>"; };
-		EE8D30D51A811E1F009696A0 /* apps-on-maps.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "apps-on-maps.xcodeproj"; path = "../../../../../../eegeo-mobile/apps-on-maps-ios/apps-on-maps.xcodeproj"; sourceTree = "<group>"; };
-		EE8D30F01A8145ED009696A0 /* libhttpxx.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libhttpxx.dylib; path = "../../../../../../eegeo-mobile/libs/OSX/libhttpxx.dylib"; sourceTree = "<group>"; };
-		EE8D30F41A8146A6009696A0 /* libhttpxx.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libhttpxx.dylib; path = "../../../../../../eegeo-mobile/libs/OSX/libhttpxx.dylib"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,9 +133,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EE8D30E71A814346009696A0 /* libapps-on-maps-osx.dylib in Frameworks */,
+				EE9AC2A11A83B62600F77538 /* libhttpxx.dylib in Frameworks */,
+				EE9AC29A1A83B37D00F77538 /* libapps-on-maps-osx.dylib in Frameworks */,
 				EE8D30E61A811EC9009696A0 /* libovr.a in Frameworks */,
-				EE8D30F11A8145ED009696A0 /* libhttpxx.dylib in Frameworks */,
 				E8E0A57A190860110077EB8E /* IOKit.framework in Frameworks */,
 				E8E0A57819085FE50077EB8E /* OpenGL.framework in Frameworks */,
 				E8E0A57619085FC60077EB8E /* AudioToolbox.framework in Frameworks */,
@@ -203,8 +176,6 @@
 		E8CC57BE1908266300EEEC84 = {
 			isa = PBXGroup;
 			children = (
-				EE8D30F41A8146A6009696A0 /* libhttpxx.dylib */,
-				EE8D30D51A811E1F009696A0 /* apps-on-maps.xcodeproj */,
 				EE8D30CF1A811E18009696A0 /* LibOVR.xcodeproj */,
 				183C005D19B8BCF700F8AB26 /* eeGeo */,
 				E8E0A589190861220077EB8E /* tinyxml2.cpp */,
@@ -234,7 +205,6 @@
 			isa = PBXGroup;
 			children = (
 				E8CC57D11908266300EEEC84 /* Supporting Files */,
-				EE8D30F01A8145ED009696A0 /* libhttpxx.dylib */,
 				1802C9F719B9A87B003D4E4E /* libapps-on-maps-osx.dylib */,
 				183C005A19B8BBFA00F8AB26 /* libhttpxx.dylib */,
 				E8E0A58C1908619A0077EB8E /* libovr.a */,
@@ -321,16 +291,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		EE8D30D61A811E1F009696A0 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				EE8D30DC1A811E20009696A0 /* libapps-on-maps.a */,
-				EE8D30DE1A811E20009696A0 /* libapps-on-maps-cpp11.a */,
-				EE8D30E01A811E20009696A0 /* libapps-on-maps-osx.dylib */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -346,7 +306,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				EE8D30E41A811E3D009696A0 /* PBXTargetDependency */,
 				EE8D30E21A811E3A009696A0 /* PBXTargetDependency */,
 			);
 			name = OculusWorldDemo;
@@ -376,10 +335,6 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = EE8D30D61A811E1F009696A0 /* Products */;
-					ProjectRef = EE8D30D51A811E1F009696A0 /* apps-on-maps.xcodeproj */;
-				},
-				{
 					ProductGroup = EE8D30D01A811E18009696A0 /* Products */;
 					ProjectRef = EE8D30CF1A811E18009696A0 /* LibOVR.xcodeproj */;
 				},
@@ -397,27 +352,6 @@
 			fileType = archive.ar;
 			path = libovr.a;
 			remoteRef = EE8D30D31A811E18009696A0 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		EE8D30DC1A811E20009696A0 /* libapps-on-maps.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = "libapps-on-maps.a";
-			remoteRef = EE8D30DB1A811E20009696A0 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		EE8D30DE1A811E20009696A0 /* libapps-on-maps-cpp11.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = "libapps-on-maps-cpp11.a";
-			remoteRef = EE8D30DD1A811E20009696A0 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		EE8D30E01A811E20009696A0 /* libapps-on-maps-osx.dylib */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.dylib";
-			path = "libapps-on-maps-osx.dylib";
-			remoteRef = EE8D30DF1A811E20009696A0 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -468,11 +402,6 @@
 			isa = PBXTargetDependency;
 			name = LibOVR;
 			targetProxy = EE8D30E11A811E3A009696A0 /* PBXContainerItemProxy */;
-		};
-		EE8D30E41A811E3D009696A0 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "apps-on-maps-osx";
-			targetProxy = EE8D30E31A811E3D009696A0 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -567,13 +496,12 @@
 					"$(SRCROOT)/../../../../../LibOVR/Include/",
 					"$(SRCROOT)/../../../../../3rdParty/TinyXml/",
 					"$(SRCROOT)/../../../../../eegeo-platform/platform/**",
-					"/Users/timjenks/work/eegeo-mobile/platform/**",
 				);
 				INFOPLIST_FILE = "OculusWorldDemo-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../../../../../LibOVR/Lib/Mac/Xcode/$(CONFIGURATION)",
-					"/Users/timjenks/work/eegeo-mobile/libs/OSX",
+					"$(SRCROOT)/../../../../../eegeo-platform/",
 				);
 				OBJROOT = "$(SRCROOT)/../../../Bin/Mac/Xcode/$(CONFIGURATION)";
 				ONLY_ACTIVE_ARCH = YES;
@@ -603,13 +531,12 @@
 					"$(SRCROOT)/../../../../../LibOVR/Include/",
 					"$(SRCROOT)/../../../../../3rdParty/TinyXml/",
 					"$(SRCROOT)/../../../../../eegeo-platform/platform/**",
-					"/Users/timjenks/work/eegeo-mobile/platform/**",
 				);
 				INFOPLIST_FILE = "OculusWorldDemo-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../../../../../LibOVR/Lib/Mac/Xcode/$(CONFIGURATION)",
-					"/Users/timjenks/work/eegeo-mobile/libs/OSX",
+					"$(SRCROOT)/../../../../../eegeo-platform/",
 				);
 				OBJROOT = "$(SRCROOT)/../../../Bin/Mac/Xcode/$(CONFIGURATION)";
 				ONLY_ACTIVE_ARCH = YES;
