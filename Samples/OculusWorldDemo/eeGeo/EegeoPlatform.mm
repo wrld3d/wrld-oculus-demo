@@ -31,6 +31,11 @@
 #include "TerrainModelModule.h"
 #include "LightingModule.h"
 #include "LoadingScreen.h"
+#include "LocalAsyncTextureLoader.h"
+#include "Model.h"
+#include "NullMaterialFactory.h"
+#include "RenderableFilters.h"
+#include "Node.h"
 
 #include "PackedRenderableFilter.h"
 #include "PlaceNamesViewFilter.h"
@@ -139,15 +144,26 @@ namespace Eegeo
         // Uses altitude LOD refinement up until first level with buildings, from there it does distance based LOD selection
         m_pStreamingVolume->setDeepestLevelForAltitudeLodRefinement(11);
         
-        m_pWorld->GetMapModule().GetShadowPresentationModule().GetShadowRenderableFilter().SetEnabled(false);
+        m_pWorld->GetMapModule().GetShadowPresentationModule().GetShadowRenderableFilter().SetEnabled(true);
         m_pWorld->GetMapModule().GetPlaceNamesPresentationModule().GetPlaceNamesViewFilter().SetEnabled(false);
         m_pWorld->GetMapModule().GetTransportPresentationModule().GetRoadNamesRenderableFilter().SetEnabled(false);
 
+        m_pModel = Eegeo::Model::CreateFromPODFile("Test_ROBOT_ARM.pod", m_pOSXPlatformAbstractionModule->GetFileIO(), &(m_pWorld->GetAsyncLoadersModule().GetLocalAsyncTextureLoader()), "");
+        Eegeo_ASSERT(m_pModel->GetRootNode());
+        
+        m_pNullMaterial = m_pWorld->GetRenderingModule().GetNullMaterialFactory().Create("PODAnimationExampleNullMaterial");
+        
+        m_pRobotArmRenderable = Eegeo_NEW (RobotArmRenderable)(*m_pModel, m_pWorld->GetLightingModule().GetGlobalFogging(), *m_pNullMaterial);
+        m_pRobotArmFilter = Eegeo_NEW (RobotArmFilter)(*m_pRobotArmRenderable);
+        m_pWorld->GetRenderingModule().GetRenderableFilters().AddRenderableFilter(*m_pRobotArmFilter);
     }
     
     Platform::~Platform()
     {
         m_pWorld->OnPause();
+        m_pWorld->GetRenderingModule().GetRenderableFilters().RemoveRenderableFilter(*m_pRobotArmFilter);
+        delete m_pRobotArmFilter;
+        delete m_pRobotArmRenderable;
         delete m_pLoadingScreen;
         delete m_pWorld;
         delete m_pOSXPlatformAbstractionModule;
@@ -198,6 +214,7 @@ namespace Eegeo
         UpdateNightTParam(dt);
         UpdateFogging();
         UpdateLoadingScreen(dt);
+        m_pModel->UpdateAnimator(dt*0.4f);
     }
     
     
@@ -209,6 +226,8 @@ namespace Eegeo
                                               cameraState.ViewMatrix(),
                                               cameraState.ProjectionMatrix(),
                                               m_screenProperties);
+        
+        m_pRobotArmRenderable->UpdateObserverLocation(cameraState.LocationEcef());
         
         m_pWorld->Draw(drawParams);
 

@@ -25,6 +25,7 @@
 #include "IStreamingVolume.h"
 #include "CameraFrustumStreamingVolume.h"
 #include "OVREegeoCameraController.h"
+#include "RobotArm.h"
 
 //#import <OpenGL/OpenGL.h>
 #import <Cocoa/Cocoa.h>
@@ -52,9 +53,17 @@ namespace Eegeo
         
         Resources::Terrain::Heights::TerrainHeightProvider& GetTerrainHeightProvider() { return m_pWorld->GetMapModule().GetTerrainModelModule().GetTerrainHeightProvider();}
         
+        Eegeo::DebugRendering::DebugRenderer& GetDebugRenderer() { return m_pWorld->GetDebugRenderingModule().GetDebugRenderer(); }
+        
         ITouchController& GetTouchController();
     private:
         void UpdateLoadingScreen(float dt);
+        
+        Eegeo::Model* m_pModel;
+        Eegeo::Rendering::Materials::NullMaterial* m_pNullMaterial;
+        
+        RobotArmRenderable* m_pRobotArmRenderable;
+        RobotArmFilter* m_pRobotArmFilter;
         
         Eegeo::Blitter* m_pBlitter;
         Eegeo::Helpers::Jpeg::IJpegLoader* m_pJpegLoader;
