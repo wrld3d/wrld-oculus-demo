@@ -39,6 +39,7 @@ namespace Eegeo
             , m_ecefPosition(0.0, 0.0, 0.0)
             , m_falling(false)
             , m_pTerrainHeightProvider(NULL)
+            , m_shiftDown(false)
             {
                 m_orientation.Identity();
             }
@@ -81,6 +82,8 @@ namespace Eegeo
             
             Camera::CameraState GetCameraState() const;
             
+            void SetShiftDown(bool down) { m_shiftDown = down; }
+            
         private:
             bool CanAcceptUserInput() const;
             
@@ -103,6 +106,8 @@ namespace Eegeo
             Eegeo::Resources::Terrain::Heights::TerrainHeightProvider * m_pTerrainHeightProvider;
             
             CameraPositionSpline m_cameraPositionSpline;
+            
+            bool m_shiftDown;
             
             dv3 m_interestEcef;
             dv3 m_ecefPosition;

@@ -83,6 +83,10 @@ namespace Eegeo
             {
                 m_cameraPositionSpline.Update(dt);
                 m_cameraPositionSpline.GetCurrentCameraPosition(m_ecefPosition, m_orientation);
+                if (!IsFollowingSpline())
+                {
+                    m_cameraPositionSpline.NextSpline();
+                }
             }
             else
             {
@@ -197,13 +201,14 @@ namespace Eegeo
             const double minAltitude = 300.0;
             const double maxAltitude = 8000.0;
             
-            const double minMultiplier = 30.f;
+            const double minMultiplier = 60.f;
             const double maxMultiplier = 10000.f;
             
             double clampedAltitude = Math::Clamp(GetAltitudeAboveSeaLevel(), minAltitude, maxAltitude);
             double altitudeT = (clampedAltitude - minAltitude) / (maxAltitude - minAltitude);
             
-            return minMultiplier + ((maxMultiplier - minMultiplier) * altitudeT);
+            float multiplier = minMultiplier + ((maxMultiplier - minMultiplier) * altitudeT);
+            return m_shiftDown ? multiplier * 0.2f : multiplier;
         }
         
         void OVREegeoCameraController::StartFall()
