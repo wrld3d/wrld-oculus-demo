@@ -126,9 +126,7 @@ namespace Eegeo
                                          *m_pOSXNativeUIFactories,
                                          environmentCharacterSet,
                                          config,
-                                         NULL,
-                                         "http://cdn1.eegeo.com/coverage-trees/v427_zdc/manifest.txt.gz",
-                                         "http://cdn1.eegeo.com/test-manifests/manifest-fudged-fog.txt.gz");
+                                         NULL);
         
         m_pOSXPlatformAbstractionModule->SetWebRequestServiceWorkPool(m_pWorld->GetWorkPool());
         
