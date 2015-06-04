@@ -1,9 +1,11 @@
 Oculus SDK / eeGeo SDK
 ----------------------
 
-Run ./update.platform -p osx
-Open LibOVR_With_Samples.xcworkspace in XCode
-x86_64 build should work fine
+**Running**
+
+* Run ./update.platform -p osx
+* Open LibOVR_With_Samples.xcworkspace in XCode
+* x86_64 build should work fine
 
 Please Note:
 
