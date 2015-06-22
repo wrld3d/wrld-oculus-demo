@@ -2,6 +2,7 @@
 **/xcshareddata/
 LibOVR/Lib/Mac/Xcode/
 Samples/OculusWorldDemo/Bin/
+OculusWorldDemo.app/
 eegeo-platform/
 *.cache
 .DS_Store
