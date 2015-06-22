@@ -58,6 +58,11 @@ limitations under the License.
 #define WORLDDEMO_ASSET_PATH6 "../../../../../Assets/Tuscany/"
 #define WORLDDEMO_ASSET_PATH7 "Samples/OculusWorldDemo/Assets/Tuscany/" // This path allows the shortcut to work.
 
+namespace Eegeo
+{
+    class Platform;
+}
+
 using namespace OVR;
 using namespace OVR::OvrPlatform;
 using namespace OVR::Render;
@@ -177,6 +182,8 @@ public:
     void ResetHmdPose(OptionVar* = 0);
 
 protected:
+    Eegeo::Platform* pEegeoPlaform;
+    
     ExceptionHandler     OVR_ExceptionHandler;
     GUIExceptionListener OVR_GUIExceptionListener;
 

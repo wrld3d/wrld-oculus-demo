@@ -1,7 +1,11 @@
 **/xcuserdata/
 **/xcshareddata/
-LibOVR/Lib/Mac/Xcode/
+LibOVR/Lib/
+LibOVR/Obj/
+LibOVRKernel/Lib/
+LibOVRKernel/Obj/
 Samples/OculusWorldDemo/Bin/
+Samples/OculusWorldDemo/Obj/
 OculusWorldDemo.app/
 eegeo-platform/
 *.cache
