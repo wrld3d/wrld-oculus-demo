@@ -26,6 +26,11 @@ limitations under the License.
 using namespace OVR;
 using namespace OVR::OvrPlatform;
 
+#include "ScreenProperties.h"
+#include "EegeoSDK.h"
+#include "EegeoOSX.h"
+#include "NativeUIFactories.h"
+
 @implementation OVRApp
 
 @synthesize
@@ -328,6 +333,11 @@ static const OVR::KeyCode ModifierKeys[] = {OVR::Key_None, OVR::Key_Shift, OVR::
 
 //-(void)
 
+-(NSOpenGLPixelFormat*)getPixelFormat
+{
+    return _PixelFormat;
+}
+
 -(id) initWithFrame:(NSRect)frameRect renderParams:(const OVR::Render::RendererParams&)rp
 {
     NSOpenGLPixelFormatAttribute attr[8];
@@ -350,6 +360,7 @@ static const OVR::KeyCode ModifierKeys[] = {OVR::Key_None, OVR::Key_Shift, OVR::
     
         
     NSOpenGLPixelFormat *pf = [[[NSOpenGLPixelFormat alloc] initWithAttributes:attr] autorelease];
+    _PixelFormat = pf;
     
     self = [super initWithFrame:frameRect pixelFormat:pf];
     GLint swap = 0;
@@ -485,6 +496,25 @@ RenderDevice* PlatformCore::SetupGraphics(const SetupGraphicsDeviceSet& setupGra
     [win setAcceptsMouseMovedEvents:YES];
     [win setDelegate:view];
     [view setApp:pApp];
+    
+    int w = winrect.size.width;
+    int h = winrect.size.height;
+    
+    NSOpenGLPixelFormat* pixelFormat = [view getPixelFormat];
+    Eegeo::Rendering::ScreenProperties properties(w, h, 1, 100);
+    
+    const std::string apiKey = "2207a928392ebe113122fce9e16c3a48";
+    
+    Eegeo::OVR::EegeoOSX* eegeoOSX = new Eegeo::OVR::EegeoOSX(pixelFormat, apiKey);
+
+    Eegeo::Platform* eegeoPlatform = new Eegeo::Platform(properties,
+                                                         eegeoOSX->GetPlatformAbstraction(),
+                                                         eegeoOSX->GetJpegLoader(),
+                                                         eegeoOSX->GetLocationService(),
+                                                         eegeoOSX->GetNativeUIFactories(),
+                                                         eegeoOSX->GetPlatformConfig()
+                                                         );
+    
     View = view;
 
     const SetupGraphicsDeviceSet* setupDesc = setupGraphicsDesc.PickSetupDevice(type);

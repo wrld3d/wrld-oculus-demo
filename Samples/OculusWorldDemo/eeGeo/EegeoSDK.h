@@ -2,12 +2,6 @@
 
 #include "Types.h"
 #include "Graphics.h"
-#include "OSXFileIO.h"
-#include "OSXHttpCache.h"
-#include "OSXTextureFileLoader.h"
-#include "OSXWebLoadRequestFactory.h"
-#include "OSXUrlEncoder.h"
-#include "OSXLocationService.h"
 #include "GlobeCameraInterestPointProvider.h"
 #include "TerrainHeightProvider.h"
 #include "NativeUIFactories.h"
@@ -16,26 +10,28 @@
 #include "TouchEventWrapper.h"
 #include "Blitter.h"
 #include "SearchServiceCredentials.h"
-#include "IJpegLoader.h"
 #include "EegeoWorld.h"
 #include "NativeUIFactories.h"
-#include "OSXPlatformAbstractionModule.h"
 #include "ScreenProperties.h"
 #include "CameraState.h"
 #include "IStreamingVolume.h"
 #include "CameraFrustumStreamingVolume.h"
 #include "OVREegeoCameraController.h"
 #include "RobotArm.h"
-
-//#import <OpenGL/OpenGL.h>
-#import <Cocoa/Cocoa.h>
+#include "PlatformConfig.h"
 
 namespace Eegeo
 {
     class Platform
     {
     public:
-        Platform(Eegeo::Rendering::ScreenProperties& screenProperties, NSOpenGLPixelFormat* pPixelFormat);
+        Platform(Eegeo::Rendering::ScreenProperties& screenProperties,
+                 Modules::IPlatformAbstractionModule& platformAbstraction,
+                 Eegeo::Helpers::Jpeg::IJpegLoader& jpegLoader,
+                 Eegeo::Location::ILocationService& locationService,
+                 Eegeo::UI::NativeUIFactories& nativeInputFactories,
+                 Eegeo::Config::PlatformConfig config
+                 );
         ~Platform();
         
         void Update(float dt, Eegeo::OVR::OVREegeoCameraController& ovrCamera);
@@ -66,10 +62,6 @@ namespace Eegeo
         RobotArmFilter* m_pRobotArmFilter;
         
         Eegeo::Blitter* m_pBlitter;
-        Eegeo::Helpers::Jpeg::IJpegLoader* m_pJpegLoader;
-        Eegeo::Location::ILocationService* m_pOSXLocationService;
-        UI::NativeUIFactories* m_pOSXNativeUIFactories;
-        Eegeo::OSX::OSXPlatformAbstractionModule * m_pOSXPlatformAbstractionModule;
         
         Eegeo::Rendering::ScreenProperties m_screenProperties;
         Eegeo::Streaming::CameraFrustumStreamingVolume* m_pStreamingVolume;

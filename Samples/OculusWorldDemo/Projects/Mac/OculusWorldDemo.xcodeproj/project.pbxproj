@@ -26,10 +26,11 @@
 		16073A231A3FC97200BC3261 /* RenderProfiler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16073A081A3FC97200BC3261 /* RenderProfiler.cpp */; };
 		16073A271A3FCBE900BC3261 /* CameraCalibration.json in Resources */ = {isa = PBXBuildFile; fileRef = 16073A261A3FCBE900BC3261 /* CameraCalibration.json */; };
 		226B687A1B38761E001EB254 /* libapps-on-maps-osx.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 226B68791B38761E001EB254 /* libapps-on-maps-osx.dylib */; };
-		226B68811B387E34001EB254 /* EegeoSDK.mm in Sources */ = {isa = PBXBuildFile; fileRef = 226B687F1B387E34001EB254 /* EegeoSDK.mm */; };
-		226B68841B387F5C001EB254 /* OVREegeoCameraController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 226B68821B387F5C001EB254 /* OVREegeoCameraController.cpp */; };
-		226B68871B387F93001EB254 /* CameraPositionSpline.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 226B68851B387F93001EB254 /* CameraPositionSpline.cpp */; };
-		226B688A1B387FC7001EB254 /* RobotArm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 226B68881B387FC7001EB254 /* RobotArm.cpp */; };
+		22C310A91B3B4F770058909D /* CameraPositionSpline.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22C3109F1B3B4F770058909D /* CameraPositionSpline.cpp */; };
+		22C310AA1B3B4F770058909D /* EegeoOSX.mm in Sources */ = {isa = PBXBuildFile; fileRef = 22C310A21B3B4F770058909D /* EegeoOSX.mm */; };
+		22C310AB1B3B4F770058909D /* EegeoSDK.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22C310A31B3B4F770058909D /* EegeoSDK.cpp */; };
+		22C310AC1B3B4F770058909D /* OVREegeoCameraController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22C310A51B3B4F770058909D /* OVREegeoCameraController.cpp */; };
+		22C310AD1B3B4F770058909D /* RobotArm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22C310A71B3B4F770058909D /* RobotArm.cpp */; };
 		707BF3EE1A8EF54700720128 /* LibOVR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 707BF3ED1A8EF54700720128 /* LibOVR.framework */; };
 		E8CC57CB1908266300EEEC84 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8CC57CA1908266300EEEC84 /* Cocoa.framework */; };
 		E8E0A57619085FC60077EB8E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8E0A57519085FC60077EB8E /* AudioToolbox.framework */; };
@@ -76,14 +77,16 @@
 		16073A261A3FCBE900BC3261 /* CameraCalibration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = CameraCalibration.json; path = ../../CameraCalibration.json; sourceTree = "<group>"; };
 		226B68791B38761E001EB254 /* libapps-on-maps-osx.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libapps-on-maps-osx.dylib"; path = "../../../../eegeo-platform/libapps-on-maps-osx.dylib"; sourceTree = "<group>"; };
 		226B687B1B38762F001EB254 /* libhttpxx.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libhttpxx.dylib; path = "../../../../eegeo-platform/libhttpxx.dylib"; sourceTree = "<group>"; };
-		226B687F1B387E34001EB254 /* EegeoSDK.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EegeoSDK.mm; sourceTree = "<group>"; };
-		226B68801B387E34001EB254 /* EegeoSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EegeoSDK.h; sourceTree = "<group>"; };
-		226B68821B387F5C001EB254 /* OVREegeoCameraController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = OVREegeoCameraController.cpp; path = ../../eeGeo/OVREegeoCameraController.cpp; sourceTree = "<group>"; };
-		226B68831B387F5C001EB254 /* OVREegeoCameraController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OVREegeoCameraController.h; path = ../../eeGeo/OVREegeoCameraController.h; sourceTree = "<group>"; };
-		226B68851B387F93001EB254 /* CameraPositionSpline.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CameraPositionSpline.cpp; path = ../../eeGeo/CameraPositionSpline.cpp; sourceTree = "<group>"; };
-		226B68861B387F93001EB254 /* CameraPositionSpline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CameraPositionSpline.h; path = ../../eeGeo/CameraPositionSpline.h; sourceTree = "<group>"; };
-		226B68881B387FC7001EB254 /* RobotArm.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = RobotArm.cpp; path = ../../eeGeo/RobotArm.cpp; sourceTree = "<group>"; };
-		226B68891B387FC7001EB254 /* RobotArm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RobotArm.h; path = ../../eeGeo/RobotArm.h; sourceTree = "<group>"; };
+		22C3109F1B3B4F770058909D /* CameraPositionSpline.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CameraPositionSpline.cpp; sourceTree = "<group>"; };
+		22C310A01B3B4F770058909D /* CameraPositionSpline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraPositionSpline.h; sourceTree = "<group>"; };
+		22C310A11B3B4F770058909D /* EegeoOSX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EegeoOSX.h; sourceTree = "<group>"; };
+		22C310A21B3B4F770058909D /* EegeoOSX.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EegeoOSX.mm; sourceTree = "<group>"; };
+		22C310A31B3B4F770058909D /* EegeoSDK.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EegeoSDK.cpp; sourceTree = "<group>"; };
+		22C310A41B3B4F770058909D /* EegeoSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EegeoSDK.h; sourceTree = "<group>"; };
+		22C310A51B3B4F770058909D /* OVREegeoCameraController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OVREegeoCameraController.cpp; sourceTree = "<group>"; };
+		22C310A61B3B4F770058909D /* OVREegeoCameraController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OVREegeoCameraController.h; sourceTree = "<group>"; };
+		22C310A71B3B4F770058909D /* RobotArm.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RobotArm.cpp; sourceTree = "<group>"; };
+		22C310A81B3B4F770058909D /* RobotArm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotArm.h; sourceTree = "<group>"; };
 		707BF3ED1A8EF54700720128 /* LibOVR.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LibOVR.framework; path = "/Users/jhillery/Perforce/jhillery-mbp/depot/Software/OculusSDK/0.4/Main/LibOVR/Projects/Mac/../../Lib/Mac/Debug/LibOVR.framework"; sourceTree = "<absolute>"; };
 		E8CC57C71908266300EEEC84 /* OculusWorldDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OculusWorldDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8CC57CA1908266300EEEC84 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
@@ -179,17 +182,28 @@
 			path = Util;
 			sourceTree = "<group>";
 		};
+		22C3109E1B3B4F770058909D /* eeGeo */ = {
+			isa = PBXGroup;
+			children = (
+				22C3109F1B3B4F770058909D /* CameraPositionSpline.cpp */,
+				22C310A01B3B4F770058909D /* CameraPositionSpline.h */,
+				22C310A11B3B4F770058909D /* EegeoOSX.h */,
+				22C310A21B3B4F770058909D /* EegeoOSX.mm */,
+				22C310A31B3B4F770058909D /* EegeoSDK.cpp */,
+				22C310A41B3B4F770058909D /* EegeoSDK.h */,
+				22C310A51B3B4F770058909D /* OVREegeoCameraController.cpp */,
+				22C310A61B3B4F770058909D /* OVREegeoCameraController.h */,
+				22C310A71B3B4F770058909D /* RobotArm.cpp */,
+				22C310A81B3B4F770058909D /* RobotArm.h */,
+			);
+			name = eeGeo;
+			path = ../../eeGeo;
+			sourceTree = "<group>";
+		};
 		E8CC57BE1908266300EEEC84 = {
 			isa = PBXGroup;
 			children = (
-				226B68881B387FC7001EB254 /* RobotArm.cpp */,
-				226B68891B387FC7001EB254 /* RobotArm.h */,
-				226B68851B387F93001EB254 /* CameraPositionSpline.cpp */,
-				226B68861B387F93001EB254 /* CameraPositionSpline.h */,
-				226B68821B387F5C001EB254 /* OVREegeoCameraController.cpp */,
-				226B68831B387F5C001EB254 /* OVREegeoCameraController.h */,
-				226B687F1B387E34001EB254 /* EegeoSDK.mm */,
-				226B68801B387E34001EB254 /* EegeoSDK.h */,
+				22C3109E1B3B4F770058909D /* eeGeo */,
 				160739C51A3FC8CB00BC3261 /* Player.h */,
 				160739C61A3FC8CB00BC3261 /* Player.cpp */,
 				160739C71A3FC8CB00BC3261 /* OculusWorldDemo_Scene.cpp */,
@@ -314,21 +328,22 @@
 			files = (
 				160739CC1A3FC8CB00BC3261 /* OculusWorldDemo.cpp in Sources */,
 				16073A1C1A3FC97200BC3261 /* Render_GL_Device.cpp in Sources */,
-				226B68871B387F93001EB254 /* CameraPositionSpline.cpp in Sources */,
+				22C310A91B3B4F770058909D /* CameraPositionSpline.cpp in Sources */,
 				16073A231A3FC97200BC3261 /* RenderProfiler.cpp in Sources */,
-				226B68841B387F5C001EB254 /* OVREegeoCameraController.cpp in Sources */,
 				16073A1B1A3FC97200BC3261 /* Render_Device.cpp in Sources */,
-				226B68811B387E34001EB254 /* EegeoSDK.mm in Sources */,
 				160739C31A3FC87600BC3261 /* tinyxml2.cpp in Sources */,
-				226B688A1B387FC7001EB254 /* RobotArm.cpp in Sources */,
 				16073A1F1A3FC97200BC3261 /* Render_LoadTextureTGA.cpp in Sources */,
 				16073A221A3FC97200BC3261 /* OptionMenu.cpp in Sources */,
+				22C310AB1B3B4F770058909D /* EegeoSDK.cpp in Sources */,
 				16073A111A3FC97200BC3261 /* OSX_WavPlayer.cpp in Sources */,
 				16073A1E1A3FC97200BC3261 /* Render_LoadTextureDDS.cpp in Sources */,
+				22C310AD1B3B4F770058909D /* RobotArm.cpp in Sources */,
+				22C310AA1B3B4F770058909D /* EegeoOSX.mm in Sources */,
 				160739CA1A3FC8CB00BC3261 /* Player.cpp in Sources */,
 				16073A121A3FC97200BC3261 /* Platform.cpp in Sources */,
 				16073A211A3FC97200BC3261 /* Render_XmlSceneLoader.cpp in Sources */,
 				16073A0F1A3FC97200BC3261 /* OSX_Gamepad.cpp in Sources */,
+				22C310AC1B3B4F770058909D /* OVREegeoCameraController.cpp in Sources */,
 				16073A101A3FC97200BC3261 /* OSX_Platform.mm in Sources */,
 				160739CB1A3FC8CB00BC3261 /* OculusWorldDemo_Scene.cpp in Sources */,
 			);
@@ -450,7 +465,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-lOVRKernel";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				RUN_CLANG_STATIC_ANALYZER = YES;
+				RUN_CLANG_STATIC_ANALYZER = NO;
 				SYMROOT = "$(SRCROOT)/../../Bin/Mac/$CONFIGURATION";
 				WRAPPER_EXTENSION = app;
 			};
@@ -495,7 +510,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-lOVRKernel";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				RUN_CLANG_STATIC_ANALYZER = YES;
+				RUN_CLANG_STATIC_ANALYZER = NO;
 				SYMROOT = "$(SRCROOT)/../../Bin/Mac/$CONFIGURATION";
 				WRAPPER_EXTENSION = app;
 			};

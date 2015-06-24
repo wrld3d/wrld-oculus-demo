@@ -47,6 +47,7 @@ limitations under the License.
 {
     OVR::OvrPlatform::OSX::PlatformCore* _Platform;
     OVR::OvrPlatform::Application* _App;
+    NSOpenGLPixelFormat* _PixelFormat;
     unsigned long _Modifiers;
 }
 
@@ -56,7 +57,7 @@ limitations under the License.
 
 -(void)ProcessMouse:(NSEvent*)event;
 -(void)warpMouseToCenter;
-
+-(NSOpenGLPixelFormat*)getPixelFormat;
 +(CGDirectDisplayID) displayFromScreen:(NSScreen*)s;
 
 @end

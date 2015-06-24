@@ -29,6 +29,15 @@ limitations under the License.
 #include "Kernel/OVR_KeyCodes.h"
 #include "Kernel/OVR_String.h"
 
+namespace Eegeo
+{
+    class Platform;
+    
+    namespace OVR
+    {
+        class OVREegeoCameraController;
+    }
+}
 
 namespace OVR { namespace Render {
     class RenderDevice;
@@ -38,6 +47,7 @@ namespace OVR { namespace Render {
 
 namespace OVR { namespace OvrPlatform {
 
+    
 using Render::RenderDevice;
 
 class PlatformCore;
@@ -167,7 +177,9 @@ class Application : public NewOverrideBase
 {
 protected:
     class PlatformCore* pPlatform;
-
+    class Eegeo::Platform* pEegeoPlatform;
+    class Eegeo::OVR::OVREegeoCameraController* pCameraController;
+    
 public:
     virtual ~Application() { }
 
@@ -186,7 +198,12 @@ public:
 
     void         SetPlatformCore(PlatformCore* p) { pPlatform = p; }
     PlatformCore* GetPlatformCore() const         { return pPlatform; }
-
+    
+    void         SetEegeoPlatform(Eegeo::Platform* p) { pEegeoPlatform = p; }
+    Eegeo::Platform* GetEegeoPlatform()               { return pEegeoPlatform; }
+    
+    void         SetOVREegeoCameraController(Eegeo::OVR::OVREegeoCameraController* a) { pCameraController = a; }
+    Eegeo::OVR::OVREegeoCameraController* GetOVREegeoCameraController()      { return pCameraController; }
 
     // Static functions defined by OVR_PLATFORM_APP and used to initialize and
     // shut down the application class.

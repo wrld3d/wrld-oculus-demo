@@ -4,11 +4,6 @@
 #include "GlobalFogging.h"
 #include "EnvironmentFlatteningService.h"
 #include "JpegLoader.h"
-#include "OSXWebRequestService.h"
-#include "OSXGlTaskContextFactory.h"
-#include "OSXPlatformConfigBuilder.h"
-#include "OSXLocationService.h"
-#include "OSXStubUI.h"
 #include "NavigationService.h"
 #include "GpsGlobeCameraControllerFactory.h"
 #include "GpsGlobeCameraController.h"
@@ -36,6 +31,7 @@
 #include "NullMaterialFactory.h"
 #include "RenderableFilters.h"
 #include "Node.h"
+#include "ILocationService.h"
 
 #include "PackedRenderableFilter.h"
 #include "PlaceNamesViewFilter.h"
@@ -81,7 +77,12 @@ namespace Eegeo
         }
     }
     
-    Platform::Platform(Eegeo::Rendering::ScreenProperties& screenProperties, NSOpenGLPixelFormat* pPixelFormat)
+    Platform::Platform(Eegeo::Rendering::ScreenProperties& screenProperties,
+                       Modules::IPlatformAbstractionModule& platformAbstraction,
+                       Eegeo::Helpers::Jpeg::IJpegLoader& jpegLoader,
+                       Eegeo::Location::ILocationService& locationService,
+                       Eegeo::UI::NativeUIFactories& nativeInputFactories,
+                       Eegeo::Config::PlatformConfig config)
     : m_night(false)
     , m_nightTParam(0.f)
     , m_currentClearColor(dayClearColor)
@@ -91,44 +92,25 @@ namespace Eegeo
     {
         Eegeo::TtyHandler::TtyEnabled = true;
         
-        m_pJpegLoader = new Eegeo::Helpers::Jpeg::JpegLoader();
-        
         Eegeo::EffectHandler::Initialise();
         m_pBlitter = new Eegeo::Blitter(1024 * 128, 1024 * 64, 1024 * 32, screenProperties.GetScreenWidth(), screenProperties.GetScreenHeight());
         m_pBlitter->Initialise();
         
         const Eegeo::EnvironmentCharacterSet::Type environmentCharacterSet = Eegeo::EnvironmentCharacterSet::JapanPlaceNames;
-        
-        Eegeo::Config::PlatformConfig config = (new OSX::OSXPlatformConfigBuilder())->Build();
-        
-        m_pOSXLocationService = new Eegeo::OSX::OSXLocationService();
-        
-        OSX::OSXAlertBoxFactory* alertBox = new OSX::OSXAlertBoxFactory();
-        OSX::OSXInputBoxFactory* inputBox = new OSX::OSXInputBoxFactory();
-        OSX::OSXKeyboardInputFactory* keyboardInputFactory = new OSX::OSXKeyboardInputFactory();
-        
-        m_pOSXNativeUIFactories = new UI::NativeUIFactories(*alertBox, *inputBox, *keyboardInputFactory);
-        
+                
         const std::string placeholderTextureResource = "placeholder.png";
         const std::string apiKey = "2207a928392ebe113122fce9e16c3a48";
         
-        m_pOSXPlatformAbstractionModule = new Eegeo::OSX::OSXPlatformAbstractionModule(*m_pJpegLoader,
-                                                                                       pPixelFormat,
-                                                                                       "OculusWorldDemo.app/Contents/Resources/Assets/eeGeo/",
-                                                                                       apiKey);
-        
         m_pWorld = new Eegeo::EegeoWorld(apiKey,
-                                         *m_pOSXPlatformAbstractionModule,
-                                         *m_pJpegLoader,
+                                         platformAbstraction,
+                                         jpegLoader,
                                          screenProperties,
-                                         *m_pOSXLocationService,
+                                         locationService,
                                          *m_pBlitter,
-                                         *m_pOSXNativeUIFactories,
+                                         nativeInputFactories,
                                          environmentCharacterSet,
                                          config,
                                          NULL);
-        
-        m_pOSXPlatformAbstractionModule->SetWebRequestServiceWorkPool(m_pWorld->GetWorkPool());
         
         Eegeo::Modules::Map::MapModule& mapModule = m_pWorld->GetMapModule();
         
@@ -137,7 +119,7 @@ namespace Eegeo
                                                                                        Eegeo::Streaming::QuadTreeCube::MAX_DEPTH_TO_VISIT,
                                                                                        mapModule.GetEnvironmentFlatteningService());
         
-        m_pLoadingScreen = CreateLoadingScreen(m_pWorld->GetRenderingModule(), m_pOSXPlatformAbstractionModule->GetTextureFileLoader(), screenProperties);
+        m_pLoadingScreen = CreateLoadingScreen(m_pWorld->GetRenderingModule(), platformAbstraction.GetTextureFileLoader(), screenProperties);
         
         // Uses altitude LOD refinement up until first level with buildings, from there it does distance based LOD selection
         m_pStreamingVolume->setDeepestLevelForAltitudeLodRefinement(11);
@@ -146,7 +128,7 @@ namespace Eegeo
         m_pWorld->GetMapModule().GetPlaceNamesPresentationModule().GetPlaceNamesViewFilter().SetEnabled(false);
         m_pWorld->GetMapModule().GetTransportPresentationModule().GetRoadNamesRenderableFilter().SetEnabled(false);
         
-        m_pModel = Eegeo::Model::CreateFromPODFile("Test_ROBOT_ARM.pod", m_pOSXPlatformAbstractionModule->GetFileIO(), &(m_pWorld->GetAsyncLoadersModule().GetLocalAsyncTextureLoader()), "");
+        m_pModel = Eegeo::Model::CreateFromPODFile("Test_ROBOT_ARM.pod", platformAbstraction.GetFileIO(), &(m_pWorld->GetAsyncLoadersModule().GetLocalAsyncTextureLoader()), "");
         Eegeo_ASSERT(m_pModel->GetRootNode());
         
         m_pNullMaterial = m_pWorld->GetRenderingModule().GetNullMaterialFactory().Create("PODAnimationExampleNullMaterial");
@@ -164,11 +146,7 @@ namespace Eegeo
         delete m_pRobotArmRenderable;
         delete m_pLoadingScreen;
         delete m_pWorld;
-        delete m_pOSXPlatformAbstractionModule;
-        delete m_pOSXNativeUIFactories;
-        delete m_pOSXLocationService;
         delete m_pBlitter;
-        delete m_pJpegLoader;
     }
     
     void Platform::NotifyScreenPropertiesChanged(const Eegeo::Rendering::ScreenProperties& screenProperties)
