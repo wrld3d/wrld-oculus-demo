@@ -55,6 +55,14 @@ namespace Eegeo
         class PlatformConfig;
     }
     
+    namespace Concurrency
+    {
+        namespace Tasks
+        {
+            class IWorkPool;
+        }
+    }
+    
     namespace OVR
     {
         class EegeoOSX
@@ -70,6 +78,8 @@ namespace Eegeo
             Location::ILocationService& GetLocationService();
             
             Eegeo::Config::PlatformConfig GetPlatformConfig();
+            
+            void SetWebRequestServiceWorkPool(Concurrency::Tasks::IWorkPool& workPool);
         private:
             UI::NativeUIFactories* m_pNativeUIFactories;
             OSX::OSXPlatformAbstractionModule* m_pOSXPlatformAbstractionModule;

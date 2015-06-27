@@ -33,11 +33,15 @@ namespace Eegeo
             m_pOSXLocationService = new OSX::OSXLocationService();
         }
         
+        void EegeoOSX::SetWebRequestServiceWorkPool(Concurrency::Tasks::IWorkPool& workPool) { m_pOSXPlatformAbstractionModule->SetWebRequestServiceWorkPool(workPool); }
+        
         UI::NativeUIFactories& EegeoOSX::GetNativeUIFactories() { return *m_pNativeUIFactories; }
         
         Modules::IPlatformAbstractionModule& EegeoOSX::GetPlatformAbstraction() { return *m_pOSXPlatformAbstractionModule; }
         Helpers::Jpeg::IJpegLoader& EegeoOSX::GetJpegLoader() { return *m_pJpegLoader; }
         Location::ILocationService& EegeoOSX::GetLocationService() { return *m_pOSXLocationService; }
+        
+        void SetWorkPool();
         
         Eegeo::Config::PlatformConfig EegeoOSX::GetPlatformConfig() { return OSX::OSXPlatformConfigBuilder().Build(); }
     }

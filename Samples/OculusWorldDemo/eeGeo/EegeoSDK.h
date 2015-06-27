@@ -22,6 +22,14 @@
 
 namespace Eegeo
 {
+    namespace Concurrency
+    {
+        namespace Tasks
+        {
+            class IWorkPool;
+        }
+    }
+    
     class Platform
     {
     public:
@@ -50,6 +58,8 @@ namespace Eegeo
         Resources::Terrain::Heights::TerrainHeightProvider& GetTerrainHeightProvider() { return m_pWorld->GetMapModule().GetTerrainModelModule().GetTerrainHeightProvider();}
         
         Eegeo::DebugRendering::DebugRenderer& GetDebugRenderer() { return m_pWorld->GetDebugRenderingModule().GetDebugRenderer(); }
+        
+        Concurrency::Tasks::IWorkPool& GetWorkPool();
         
         ITouchController& GetTouchController();
     private:

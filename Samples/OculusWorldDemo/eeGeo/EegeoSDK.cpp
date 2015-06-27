@@ -131,6 +131,7 @@ namespace Eegeo
         m_pModel = Eegeo::Model::CreateFromPODFile("Test_ROBOT_ARM.pod", platformAbstraction.GetFileIO(), &(m_pWorld->GetAsyncLoadersModule().GetLocalAsyncTextureLoader()), "");
         Eegeo_ASSERT(m_pModel->GetRootNode());
         
+        
         m_pNullMaterial = m_pWorld->GetRenderingModule().GetNullMaterialFactory().Create("PODAnimationExampleNullMaterial");
         
         m_pRobotArmRenderable = Eegeo_NEW (RobotArmRenderable)(*m_pModel, m_pWorld->GetLightingModule().GetGlobalFogging(), *m_pNullMaterial);
@@ -148,7 +149,12 @@ namespace Eegeo
         delete m_pWorld;
         delete m_pBlitter;
     }
-    
+
+    Concurrency::Tasks::IWorkPool& Platform::GetWorkPool()
+    {
+        return m_pWorld->GetWorkPool();
+    }
+
     void Platform::NotifyScreenPropertiesChanged(const Eegeo::Rendering::ScreenProperties& screenProperties)
     {
         m_screenProperties = screenProperties;

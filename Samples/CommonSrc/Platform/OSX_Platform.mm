@@ -514,6 +514,7 @@ RenderDevice* PlatformCore::SetupGraphics(const SetupGraphicsDeviceSet& setupGra
                                                          eegeoOSX->GetNativeUIFactories(),
                                                          eegeoOSX->GetPlatformConfig()
                                                          );
+    eegeoOSX->SetWebRequestServiceWorkPool(eegeoPlatform->GetWorkPool());
     pApp->SetEegeoPlatform(eegeoPlatform);
     pApp->OnResize(w,h);
     
