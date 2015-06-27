@@ -514,6 +514,8 @@ RenderDevice* PlatformCore::SetupGraphics(const SetupGraphicsDeviceSet& setupGra
                                                          eegeoOSX->GetNativeUIFactories(),
                                                          eegeoOSX->GetPlatformConfig()
                                                          );
+    pApp->SetEegeoPlatform(eegeoPlatform);
+    pApp->OnResize(w,h);
     
     View = view;
 

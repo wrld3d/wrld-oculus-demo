@@ -32,11 +32,6 @@ limitations under the License.
 namespace Eegeo
 {
     class Platform;
-    
-    namespace OVR
-    {
-        class OVREegeoCameraController;
-    }
 }
 
 namespace OVR { namespace Render {
@@ -178,7 +173,6 @@ class Application : public NewOverrideBase
 protected:
     class PlatformCore* pPlatform;
     class Eegeo::Platform* pEegeoPlatform;
-    class Eegeo::OVR::OVREegeoCameraController* pCameraController;
     
 public:
     virtual ~Application() { }
@@ -202,9 +196,6 @@ public:
     void         SetEegeoPlatform(Eegeo::Platform* p) { pEegeoPlatform = p; }
     Eegeo::Platform* GetEegeoPlatform()               { return pEegeoPlatform; }
     
-    void         SetOVREegeoCameraController(Eegeo::OVR::OVREegeoCameraController* a) { pCameraController = a; }
-    Eegeo::OVR::OVREegeoCameraController* GetOVREegeoCameraController()      { return pCameraController; }
-
     // Static functions defined by OVR_PLATFORM_APP and used to initialize and
     // shut down the application class.
     static Application* CreateApplication();
