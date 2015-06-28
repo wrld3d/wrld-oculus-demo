@@ -24,7 +24,10 @@
 		16073A231A3FC97200BC3261 /* RenderProfiler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16073A081A3FC97200BC3261 /* RenderProfiler.cpp */; };
 		16073A271A3FCBE900BC3261 /* CameraCalibration.json in Resources */ = {isa = PBXBuildFile; fileRef = 16073A261A3FCBE900BC3261 /* CameraCalibration.json */; };
 		223743211B3E98A800B8307F /* EegeoWorldDemo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2237431F1B3E98A800B8307F /* EegeoWorldDemo.cpp */; };
-		223743351B3F3A2600B8307F /* libapps-on-maps-osx.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 223743321B3F3A1C00B8307F /* libapps-on-maps-osx.dylib */; };
+		2237433B1B3FFCD600B8307F /* libapps-on-maps-osx.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2237433A1B3FFCD600B8307F /* libapps-on-maps-osx.dylib */; };
+		2237433D1B3FFCE200B8307F /* libhttpxx.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2237433C1B3FFCE100B8307F /* libhttpxx.dylib */; };
+		2237433F1B3FFD2400B8307F /* libhttpxx.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2237433C1B3FFCE100B8307F /* libhttpxx.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		223743401B3FFD2400B8307F /* libapps-on-maps-osx.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2237433A1B3FFCD600B8307F /* libapps-on-maps-osx.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		22C310A91B3B4F770058909D /* CameraPositionSpline.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22C3109F1B3B4F770058909D /* CameraPositionSpline.cpp */; };
 		22C310AA1B3B4F770058909D /* EegeoOSX.mm in Sources */ = {isa = PBXBuildFile; fileRef = 22C310A21B3B4F770058909D /* EegeoOSX.mm */; };
 		22C310AB1B3B4F770058909D /* EegeoSDK.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22C310A31B3B4F770058909D /* EegeoSDK.cpp */; };
@@ -37,36 +40,19 @@
 		E8E0A57A190860110077EB8E /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8E0A579190860110077EB8E /* IOKit.framework */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		2237432D1B3F3A1C00B8307F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 223743271B3F3A1B00B8307F /* apps-on-maps.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 7E1A38F21670AC4600690512;
-			remoteInfo = "apps-on-maps";
+/* Begin PBXCopyFilesBuildPhase section */
+		2237433E1B3FFD1800B8307F /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				2237433F1B3FFD2400B8307F /* libhttpxx.dylib in CopyFiles */,
+				223743401B3FFD2400B8307F /* libapps-on-maps-osx.dylib in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2237432F1B3F3A1C00B8307F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 223743271B3F3A1B00B8307F /* apps-on-maps.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 22967D80194736B90006C64A;
-			remoteInfo = "apps-on-maps-cpp11";
-		};
-		223743311B3F3A1C00B8307F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 223743271B3F3A1B00B8307F /* apps-on-maps.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 22096E4E1998B4FB003BD367;
-			remoteInfo = "apps-on-maps-osx";
-		};
-		223743331B3F3A2000B8307F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 223743271B3F3A1B00B8307F /* apps-on-maps.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 22096E4D1998B4FB003BD367;
-			remoteInfo = "apps-on-maps-osx";
-		};
-/* End PBXContainerItemProxy section */
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		160739C11A3FC87600BC3261 /* tinyxml2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = tinyxml2.cpp; path = ../../../../3rdParty/TinyXml/tinyxml2.cpp; sourceTree = "<group>"; };
@@ -104,11 +90,8 @@
 		16073A261A3FCBE900BC3261 /* CameraCalibration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = CameraCalibration.json; path = ../../CameraCalibration.json; sourceTree = "<group>"; };
 		2237431F1B3E98A800B8307F /* EegeoWorldDemo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EegeoWorldDemo.cpp; path = ../../EegeoWorldDemo.cpp; sourceTree = "<group>"; };
 		223743201B3E98A800B8307F /* EegeoWorldDemo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EegeoWorldDemo.h; path = ../../EegeoWorldDemo.h; sourceTree = "<group>"; };
-		223743231B3EA9ED00B8307F /* libapps-on-maps-osx.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libapps-on-maps-osx.dylib"; path = "../../../../../eegeo-mobile/apps-on-maps-ios/build/Debug/libapps-on-maps-osx.dylib"; sourceTree = "<group>"; };
-		223743251B3F39DF00B8307F /* libapps-on-maps-osx.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libapps-on-maps-osx.dylib"; path = "../../../../../eegeo-mobile/apps-on-maps-ios/build/Debug/libapps-on-maps-osx.dylib"; sourceTree = "<group>"; };
-		223743271B3F3A1B00B8307F /* apps-on-maps.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "apps-on-maps.xcodeproj"; path = "../../../../../eegeo-mobile/apps-on-maps-ios/apps-on-maps.xcodeproj"; sourceTree = "<group>"; };
-		226B68791B38761E001EB254 /* libapps-on-maps-osx.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libapps-on-maps-osx.dylib"; path = "../../../../eegeo-platform/libapps-on-maps-osx.dylib"; sourceTree = "<group>"; };
-		226B687B1B38762F001EB254 /* libhttpxx.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libhttpxx.dylib; path = "../../../../eegeo-platform/libhttpxx.dylib"; sourceTree = "<group>"; };
+		2237433A1B3FFCD600B8307F /* libapps-on-maps-osx.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libapps-on-maps-osx.dylib"; path = "../../../../eegeo-platform/libapps-on-maps-osx.dylib"; sourceTree = "<group>"; };
+		2237433C1B3FFCE100B8307F /* libhttpxx.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libhttpxx.dylib; path = "../../../../eegeo-platform/libhttpxx.dylib"; sourceTree = "<group>"; };
 		22C3109F1B3B4F770058909D /* CameraPositionSpline.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CameraPositionSpline.cpp; sourceTree = "<group>"; };
 		22C310A01B3B4F770058909D /* CameraPositionSpline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraPositionSpline.h; sourceTree = "<group>"; };
 		22C310A11B3B4F770058909D /* EegeoOSX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EegeoOSX.h; sourceTree = "<group>"; };
@@ -135,7 +118,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				223743351B3F3A2600B8307F /* libapps-on-maps-osx.dylib in Frameworks */,
+				2237433D1B3FFCE200B8307F /* libhttpxx.dylib in Frameworks */,
+				2237433B1B3FFCD600B8307F /* libapps-on-maps-osx.dylib in Frameworks */,
 				707BF3EE1A8EF54700720128 /* LibOVR.framework in Frameworks */,
 				E8E0A57A190860110077EB8E /* IOKit.framework in Frameworks */,
 				E8E0A57819085FE50077EB8E /* OpenGL.framework in Frameworks */,
@@ -214,16 +198,6 @@
 			path = Util;
 			sourceTree = "<group>";
 		};
-		223743281B3F3A1B00B8307F /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				2237432E1B3F3A1C00B8307F /* libapps-on-maps.a */,
-				223743301B3F3A1C00B8307F /* libapps-on-maps-cpp11.a */,
-				223743321B3F3A1C00B8307F /* libapps-on-maps-osx.dylib */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		22C3109E1B3B4F770058909D /* eeGeo */ = {
 			isa = PBXGroup;
 			children = (
@@ -245,7 +219,6 @@
 		E8CC57BE1908266300EEEC84 = {
 			isa = PBXGroup;
 			children = (
-				223743271B3F3A1B00B8307F /* apps-on-maps.xcodeproj */,
 				2237431F1B3E98A800B8307F /* EegeoWorldDemo.cpp */,
 				223743201B3E98A800B8307F /* EegeoWorldDemo.h */,
 				22C3109E1B3B4F770058909D /* eeGeo */,
@@ -272,10 +245,8 @@
 		E8CC57C91908266300EEEC84 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				223743251B3F39DF00B8307F /* libapps-on-maps-osx.dylib */,
-				223743231B3EA9ED00B8307F /* libapps-on-maps-osx.dylib */,
-				226B687B1B38762F001EB254 /* libhttpxx.dylib */,
-				226B68791B38761E001EB254 /* libapps-on-maps-osx.dylib */,
+				2237433C1B3FFCE100B8307F /* libhttpxx.dylib */,
+				2237433A1B3FFCD600B8307F /* libapps-on-maps-osx.dylib */,
 				707BF3ED1A8EF54700720128 /* LibOVR.framework */,
 				E8E0A579190860110077EB8E /* IOKit.framework */,
 				E8E0A57719085FE50077EB8E /* OpenGL.framework */,
@@ -315,11 +286,12 @@
 				E8CC57C31908266300EEEC84 /* Sources */,
 				E8CC57C41908266300EEEC84 /* Frameworks */,
 				E8CC57C51908266300EEEC84 /* Resources */,
+				2237433E1B3FFD1800B8307F /* CopyFiles */,
+				223743411B3FFEF600B8307F /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				223743341B3F3A2000B8307F /* PBXTargetDependency */,
 			);
 			name = OculusWorldDemo;
 			productName = OculusWorldDemo;
@@ -346,42 +318,12 @@
 			mainGroup = E8CC57BE1908266300EEEC84;
 			productRefGroup = E8CC57C81908266300EEEC84 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 223743281B3F3A1B00B8307F /* Products */;
-					ProjectRef = 223743271B3F3A1B00B8307F /* apps-on-maps.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				E8CC57C61908266300EEEC84 /* OculusWorldDemo */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		2237432E1B3F3A1C00B8307F /* libapps-on-maps.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = "libapps-on-maps.a";
-			remoteRef = 2237432D1B3F3A1C00B8307F /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		223743301B3F3A1C00B8307F /* libapps-on-maps-cpp11.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = "libapps-on-maps-cpp11.a";
-			remoteRef = 2237432F1B3F3A1C00B8307F /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		223743321B3F3A1C00B8307F /* libapps-on-maps-osx.dylib */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.dylib";
-			path = "libapps-on-maps-osx.dylib";
-			remoteRef = 223743311B3F3A1C00B8307F /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		E8CC57C51908266300EEEC84 /* Resources */ = {
@@ -395,6 +337,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		223743411B3FFEF600B8307F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "install_name_tool -change /usr/local/lib/libapps-on-maps-osx.dylib @executable_path/../Frameworks/lib-apps-on-maps-osx.dylib ../../../../eegeo-platform/libapps-on-maps-osx.dylib";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E8CC57C31908266300EEEC84 /* Sources */ = {
@@ -424,14 +382,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		223743341B3F3A2000B8307F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "apps-on-maps-osx";
-			targetProxy = 223743331B3F3A2000B8307F /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		E8CC57F61908266300EEEC84 /* Debug */ = {
@@ -536,6 +486,7 @@
 				);
 				INFOPLIST_FILE = Info.plist;
 				LD_MAP_FILE_PATH = "$(TARGET_TEMP_DIR)/LinkMap.txt";
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../../../../LibOVR/Lib/Mac/$CONFIGURATION",
@@ -582,6 +533,7 @@
 				);
 				INFOPLIST_FILE = Info.plist;
 				LD_MAP_FILE_PATH = "$(TARGET_TEMP_DIR)/LinkMap.txt";
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../../../../LibOVR/Lib/Mac/$CONFIGURATION",
