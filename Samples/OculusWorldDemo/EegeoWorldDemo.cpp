@@ -1332,15 +1332,45 @@ void EegeoWorldDemoApp::RenderEyeView(ovrEyeType eye)
                                        RenderDevice::Compare_Less :
                                        RenderDevice::Compare_Greater));
     
-    Matrix4f baseTranslate = Matrix4f::Translation(ThePlayer.BodyPos);
-    Matrix4f baseYaw       = Matrix4f::RotationY(ThePlayer.BodyYaw.Get());
+    Matrix4<float> transposedView = ViewFromWorld[eye].Transposed();
     
+    Vector3<float> right = transposedView.GetXBasis();
+    Vector3<float> up = transposedView.GetYBasis();
+    Vector3<float> forward = transposedView.GetZBasis();
+    
+    Eegeo::m33 cameraOrientation;
+    cameraOrientation.SetFromBasis(Eegeo::v3(right.x, right.y, right.z), Eegeo::v3(up.x, up.y, up.z), Eegeo::v3(forward.x, forward.y, forward.z));
+    
+    const float positionTrackingScale = 10.f;
+    const float eyeOffsetScale = 1.f;
+    
+    Vector3<float> positionOffset = Vector3<float>(EyeRenderPose[eye].Position);
+    Eegeo::v3 positionOffsetEegeo(positionOffset.x, positionOffset.y, positionOffset.z);
+    
+    Vector3<float> eyeOffset = Vector3<float>(EyeRenderDesc[eye].HmdToEyeViewOffset);
+    Eegeo::v3 eyeOffsetEegeo = Eegeo::v3::Mul(Eegeo::v3(-eyeOffset.x, -eyeOffset.y, -eyeOffset.z), cameraOrientation);
+    
+    float near, far;
+    pCameraController->GetNearFarPlaneDistances(near,far);
+    GetEegeoPlatform()->SetFoggingFar(far);
+    Matrix4f p = ovrMatrix4f_Projection(EyeRenderDesc[eye].Fov,
+                                        3.0f, far, true);
+    
+    UpdateProjection(p, *pCameraController);
+    
+    pCameraController->UpdateFromPose(cameraOrientation, (eyeOffsetEegeo*eyeOffsetScale) + (positionOffsetEegeo*positionTrackingScale));
+    
+    GetEegeoPlatform()->Draw(*pCameraController);
     // *** 2D Text - Configure Orthographic rendering.
     
     // Render UI in 2D orthographic coordinate system that maps [-1,1] range
     // to a readable FOV area centered at your eye and properly adjusted.
     pRender->ApplyStereoParams(renderViewport, OrthoProjection[eye]);
     pRender->SetDepthMode(false, false);
+    
+    glEnable(GL_LINE_SMOOTH);
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     
     // We set this scale up in CreateOrthoSubProjection().
     float textHeight = 22.0f;

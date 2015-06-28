@@ -45,7 +45,7 @@
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 12;
 			dstPath = "";
-			dstSubfolderSpec = 10;
+			dstSubfolderSpec = 16;
 			files = (
 				2237433F1B3FFD2400B8307F /* libhttpxx.dylib in CopyFiles */,
 				223743401B3FFD2400B8307F /* libapps-on-maps-osx.dylib in CopyFiles */,
@@ -287,7 +287,6 @@
 				E8CC57C41908266300EEEC84 /* Frameworks */,
 				E8CC57C51908266300EEEC84 /* Resources */,
 				2237433E1B3FFD1800B8307F /* CopyFiles */,
-				223743411B3FFEF600B8307F /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -337,22 +336,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		223743411B3FFEF600B8307F /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "install_name_tool -change /usr/local/lib/libapps-on-maps-osx.dylib @executable_path/../Frameworks/lib-apps-on-maps-osx.dylib ../../../../eegeo-platform/libapps-on-maps-osx.dylib";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E8CC57C31908266300EEEC84 /* Sources */ = {
