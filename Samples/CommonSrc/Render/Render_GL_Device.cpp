@@ -775,10 +775,11 @@ void RenderDevice::Clear(float r, float g, float b, float a, float depth, bool c
 {
     glClearColor(r,g,b,a);
     glClearDepth(depth);
+    glClearStencil(0);
     glClear(
-        ( clearColor ? ( GL_COLOR_BUFFER_BIT ) : 0 ) |
-        ( clearDepth ? ( GL_DEPTH_BUFFER_BIT ) : 0 )
-        );
+            ( clearColor ? ( GL_COLOR_BUFFER_BIT ) : 0 ) |
+            ( clearDepth ? ( GL_DEPTH_BUFFER_BIT ) : 0 ) | GL_STENCIL_BUFFER_BIT
+            );
 }
 
 Texture* RenderDevice::GetDepthBuffer(int w, int h, int ms)
@@ -839,9 +840,9 @@ void RenderDevice::SetRenderTarget(Render::Texture* color, Render::Texture* dept
 
     glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, texTarget, ((Texture*)color)->TexId, 0);
     if (depth)
-        glFramebufferTexture2D(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, texTarget, ((Texture*)depth)->TexId, 0);
+        glFramebufferTexture2D(GL_FRAMEBUFFER, GL_DEPTH_STENCIL_ATTACHMENT, texTarget, ((Texture*)depth)->TexId, 0);
     else
-        glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, 0);
+        glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_STENCIL_ATTACHMENT, GL_RENDERBUFFER, 0);
 
     GLenum status = glCheckFramebufferStatus(GL_FRAMEBUFFER);
     if (status != GL_FRAMEBUFFER_COMPLETE)
@@ -1381,7 +1382,7 @@ Texture* RenderDevice::CreateTexture(int format, int width, int height, const vo
     {
         bool isSRGB = ((format & Texture_TypeMask) == Texture_RGBA && (format & Texture_SRGB) != 0);
         bool isDepth = ((format & Texture_Depth) != 0);
-        GLenum internalFormat = (isSRGB) ? GL_SRGB8_ALPHA8 : (isDepth) ? (GLE_ARB_depth_buffer_float ? GL_DEPTH_COMPONENT32F : GL_DEPTH_COMPONENT) : glformat;
+        GLenum internalFormat = (isSRGB) ? GL_SRGB8_ALPHA8 : (isDepth) ? GL_DEPTH24_STENCIL8 : glformat;
 
         if (samples > 1)
             glTexImage2DMultisample(GL_TEXTURE_2D_MULTISAMPLE, samples, internalFormat, width, height, false);
