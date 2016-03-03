@@ -3,5 +3,6 @@
 LibOVR/Lib/Mac/Xcode/
 Samples/OculusWorldDemo/Bin/
 eegeo-platform/
+sdk.package.*
 *.cache
 .DS_Store
