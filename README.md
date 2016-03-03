@@ -4,10 +4,7 @@ Oculus SDK / eeGeo SDK
 **Running**
 
 * Run `./update.platform -p osx` from the root of the repository
-* Download and install [Oculus OS X Runtime 0.4.1](https://developer.oculus.com/downloads/#sdk=any&status=any)
-* Install supporting libs via [Homebrew](http://brew.sh/)
-	* `brew install libjpg`
-	* `brew install libpng`
+* Download and install [Oculus OS X Runtime 0.4.1](https://developer.oculus.com/downloads/pc/0.4.1-beta/Oculus_Runtime_for_OS_X/)
 * Open `/Samples/LibOVR_With_Samples.xcworkspace` in XCode
 * Select OculusWorldDemo from the run configurations- the x86_64 build should work fine
 
