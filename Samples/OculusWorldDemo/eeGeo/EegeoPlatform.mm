@@ -4,7 +4,6 @@
 #include "GlobalFogging.h"
 #include "EnvironmentFlatteningService.h"
 #include "JpegLoader.h"
-#include "OSXWebRequestService.h"
 #include "OSXGlTaskContextFactory.h"
 #include "OSXPlatformConfigBuilder.h"
 #include "OSXLocationService.h"
@@ -36,6 +35,7 @@
 #include "NullMaterialFactory.h"
 #include "RenderableFilters.h"
 #include "Node.h"
+#include "CityThemesModule.h"
 
 #include "PackedRenderableFilter.h"
 #include "PlaceNamesViewFilter.h"
@@ -94,8 +94,6 @@ namespace Eegeo
         m_pJpegLoader = new Eegeo::Helpers::Jpeg::JpegLoader();
         
         Eegeo::EffectHandler::Initialise();
-        m_pBlitter = new Eegeo::Blitter(1024 * 128, 1024 * 64, 1024 * 32, screenProperties.GetScreenWidth(), screenProperties.GetScreenHeight());
-        m_pBlitter->Initialise();
         
         const Eegeo::EnvironmentCharacterSet::Type environmentCharacterSet = Eegeo::EnvironmentCharacterSet::JapanPlaceNames;
         
@@ -122,13 +120,10 @@ namespace Eegeo
                                          *m_pJpegLoader,
                                          screenProperties,
                                          *m_pOSXLocationService,
-                                         *m_pBlitter,
                                          *m_pOSXNativeUIFactories,
                                          environmentCharacterSet,
                                          config,
                                          NULL);
-        
-        m_pOSXPlatformAbstractionModule->SetWebRequestServiceWorkPool(m_pWorld->GetWorkPool());
         
         Eegeo::Modules::Map::MapModule& mapModule = m_pWorld->GetMapModule();
                
@@ -167,7 +162,6 @@ namespace Eegeo
         delete m_pOSXPlatformAbstractionModule;
         delete m_pOSXNativeUIFactories;
         delete m_pOSXLocationService;
-        delete m_pBlitter;
         delete m_pJpegLoader;
     }
 

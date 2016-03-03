@@ -2,12 +2,6 @@
 
 #include "Types.h"
 #include "Graphics.h"
-#include "OSXFileIO.h"
-#include "OSXHttpCache.h"
-#include "OSXTextureFileLoader.h"
-#include "OSXWebLoadRequestFactory.h"
-#include "OSXUrlEncoder.h"
-#include "OSXLocationService.h"
 #include "GlobeCameraInterestPointProvider.h"
 #include "TerrainHeightProvider.h"
 #include "NativeUIFactories.h"
@@ -64,12 +58,11 @@ namespace Eegeo
         
         RobotArmRenderable* m_pRobotArmRenderable;
         RobotArmFilter* m_pRobotArmFilter;
-        
-        Eegeo::Blitter* m_pBlitter;
+
         Eegeo::Helpers::Jpeg::IJpegLoader* m_pJpegLoader;
         Eegeo::Location::ILocationService* m_pOSXLocationService;
         UI::NativeUIFactories* m_pOSXNativeUIFactories;
-        Eegeo::OSX::OSXPlatformAbstractionModule * m_pOSXPlatformAbstractionModule;
+        Eegeo::OSX::OSXPlatformAbstractionModule* m_pOSXPlatformAbstractionModule;
         
         Eegeo::Rendering::ScreenProperties m_screenProperties;
         Eegeo::Streaming::CameraFrustumStreamingVolume* m_pStreamingVolume;

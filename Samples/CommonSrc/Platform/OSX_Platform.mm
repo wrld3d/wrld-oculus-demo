@@ -344,14 +344,14 @@ static const OVR::KeyCode ModifierKeys[] = {OVR::Key_None, OVR::Key_Shift, OVR::
 
 -(id) initWithFrame:(NSRect)frameRect
 {
-    NSOpenGLPixelFormatAttribute attr[] =
-    {
-//        NSOpenGLPFAOpenGLProfile, NSOpenGLProfileVersion3_2Core,
-//        NSOpenGLPFAWindow,
+    NSOpenGLPixelFormatAttribute attr[]
+    =	{
         NSOpenGLPFADoubleBuffer,
         NSOpenGLPFADepthSize, 24,
         NSOpenGLPFAStencilSize, 8,
+        0
     };
+
         
     NSOpenGLPixelFormat *pf = [[[NSOpenGLPixelFormat alloc] initWithAttributes:attr] autorelease];
     

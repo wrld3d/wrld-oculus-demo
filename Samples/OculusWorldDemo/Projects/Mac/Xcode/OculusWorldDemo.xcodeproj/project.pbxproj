@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0959D8431C875DEB00C6A0F9 /* libcurl.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0959D8421C875DEB00C6A0F9 /* libcurl.tbd */; };
+		0959D8441C875DFD00C6A0F9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8CC57CF1908266300EEEC84 /* Foundation.framework */; };
+		0959D8461C875E1100C6A0F9 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0959D8451C875E1100C6A0F9 /* QuartzCore.framework */; };
+		0959D8481C875E2000C6A0F9 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0959D8471C875E2000C6A0F9 /* libz.tbd */; };
+		0959D84C1C875E3D00C6A0F9 /* libuv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0959D8491C875E3D00C6A0F9 /* libuv.a */; };
+		0959D84D1C875E3D00C6A0F9 /* libpng.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0959D84A1C875E3D00C6A0F9 /* libpng.a */; };
+		0959D84E1C875E3D00C6A0F9 /* libjpeg.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0959D84B1C875E3D00C6A0F9 /* libjpeg.a */; };
+		0959D9641C884A0B00C6A0F9 /* libeegeo-sdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0959D8401C875CE600C6A0F9 /* libeegeo-sdk.a */; };
 		183C006419B8BCF700F8AB26 /* CameraPositionSpline.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 183C005E19B8BCF700F8AB26 /* CameraPositionSpline.cpp */; };
 		183C006519B8BCF700F8AB26 /* EegeoPlatform.mm in Sources */ = {isa = PBXBuildFile; fileRef = 183C006019B8BCF700F8AB26 /* EegeoPlatform.mm */; };
 		183C006619B8BCF700F8AB26 /* OVREegeoCameraController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 183C006219B8BCF700F8AB26 /* OVREegeoCameraController.cpp */; };
@@ -33,10 +41,6 @@
 		E8E0A58B190861220077EB8E /* tinyxml2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E8E0A589190861220077EB8E /* tinyxml2.cpp */; };
 		EE7D101E1A837F4500E63118 /* RobotArm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE7D101C1A837F4500E63118 /* RobotArm.cpp */; };
 		EE8D30E61A811EC9009696A0 /* libovr.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EE8D30D41A811E18009696A0 /* libovr.a */; };
-		EE9AC29A1A83B37D00F77538 /* libapps-on-maps-osx.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1802C9F719B9A87B003D4E4E /* libapps-on-maps-osx.dylib */; };
-		EE9AC29C1A83B5B300F77538 /* libapps-on-maps-osx.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1802C9F719B9A87B003D4E4E /* libapps-on-maps-osx.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		EE9AC2A01A83B5F100F77538 /* libhttpxx.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 183C005A19B8BBFA00F8AB26 /* libhttpxx.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		EE9AC2A11A83B62600F77538 /* libhttpxx.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 183C005A19B8BBFA00F8AB26 /* libhttpxx.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,14 +67,19 @@
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
-				EE9AC2A01A83B5F100F77538 /* libhttpxx.dylib in CopyFiles */,
-				EE9AC29C1A83B5B300F77538 /* libapps-on-maps-osx.dylib in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0959D8401C875CE600C6A0F9 /* libeegeo-sdk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libeegeo-sdk.a"; path = "../../../../../eegeo-platform/prebuilt/libeegeo-sdk.a"; sourceTree = "<group>"; };
+		0959D8421C875DEB00C6A0F9 /* libcurl.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libcurl.tbd; path = usr/lib/libcurl.tbd; sourceTree = SDKROOT; };
+		0959D8451C875E1100C6A0F9 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		0959D8471C875E2000C6A0F9 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		0959D8491C875E3D00C6A0F9 /* libuv.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libuv.a; path = "../../../../../eegeo-platform/prebuilt/libuv.a"; sourceTree = "<group>"; };
+		0959D84A1C875E3D00C6A0F9 /* libpng.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpng.a; path = "../../../../../eegeo-platform/prebuilt/libpng.a"; sourceTree = "<group>"; };
+		0959D84B1C875E3D00C6A0F9 /* libjpeg.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libjpeg.a; path = "../../../../../eegeo-platform/prebuilt/libjpeg.a"; sourceTree = "<group>"; };
 		1802C9F719B9A87B003D4E4E /* libapps-on-maps-osx.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libapps-on-maps-osx.dylib"; path = "../../../../../eegeo-platform/libapps-on-maps-osx.dylib"; sourceTree = "<group>"; };
 		183C005A19B8BBFA00F8AB26 /* libhttpxx.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libhttpxx.dylib; path = "../../../../../eegeo-platform/libhttpxx.dylib"; sourceTree = "<group>"; };
 		183C005E19B8BCF700F8AB26 /* CameraPositionSpline.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CameraPositionSpline.cpp; sourceTree = "<group>"; };
@@ -133,13 +142,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EE9AC2A11A83B62600F77538 /* libhttpxx.dylib in Frameworks */,
-				EE9AC29A1A83B37D00F77538 /* libapps-on-maps-osx.dylib in Frameworks */,
+				0959D9641C884A0B00C6A0F9 /* libeegeo-sdk.a in Frameworks */,
 				EE8D30E61A811EC9009696A0 /* libovr.a in Frameworks */,
-				E8E0A57A190860110077EB8E /* IOKit.framework in Frameworks */,
+				0959D8441C875DFD00C6A0F9 /* Foundation.framework in Frameworks */,
 				E8E0A57819085FE50077EB8E /* OpenGL.framework in Frameworks */,
-				E8E0A57619085FC60077EB8E /* AudioToolbox.framework in Frameworks */,
 				E8CC57CB1908266300EEEC84 /* Cocoa.framework in Frameworks */,
+				0959D8461C875E1100C6A0F9 /* QuartzCore.framework in Frameworks */,
+				E8E0A57A190860110077EB8E /* IOKit.framework in Frameworks */,
+				0959D8431C875DEB00C6A0F9 /* libcurl.tbd in Frameworks */,
+				0959D8481C875E2000C6A0F9 /* libz.tbd in Frameworks */,
+				0959D84C1C875E3D00C6A0F9 /* libuv.a in Frameworks */,
+				0959D84E1C875E3D00C6A0F9 /* libjpeg.a in Frameworks */,
+				0959D84D1C875E3D00C6A0F9 /* libpng.a in Frameworks */,
+				E8E0A57619085FC60077EB8E /* AudioToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,6 +219,13 @@
 		E8CC57C91908266300EEEC84 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0959D8491C875E3D00C6A0F9 /* libuv.a */,
+				0959D84A1C875E3D00C6A0F9 /* libpng.a */,
+				0959D84B1C875E3D00C6A0F9 /* libjpeg.a */,
+				0959D8471C875E2000C6A0F9 /* libz.tbd */,
+				0959D8451C875E1100C6A0F9 /* QuartzCore.framework */,
+				0959D8421C875DEB00C6A0F9 /* libcurl.tbd */,
+				0959D8401C875CE600C6A0F9 /* libeegeo-sdk.a */,
 				E8CC57D11908266300EEEC84 /* Supporting Files */,
 				1802C9F719B9A87B003D4E4E /* libapps-on-maps-osx.dylib */,
 				183C005A19B8BBFA00F8AB26 /* libhttpxx.dylib */,
@@ -488,7 +510,11 @@
 				CONFIGURATION_TEMP_DIR = "$(SRCROOT)/../../../Bin/Mac/Xcode/$(CONFIGURATION)";
 				GCC_ENABLE_CPP_RTTI = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
-				GCC_PREPROCESSOR_DEFINITIONS = OVR_BUILD_DEBUG;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					OVR_BUILD_DEBUG,
+					COMPILE_CPP_11,
+					DEBUG,
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
@@ -502,7 +528,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../../../../../LibOVR/Lib/Mac/Xcode/$(CONFIGURATION)",
-					"$(SRCROOT)/../../../../../eegeo-platform/",
+					"$(SRCROOT)/../../../../../eegeo-platform/prebuilt/**",
 					/usr/local/lib,
 				);
 				OBJROOT = "$(SRCROOT)/../../../Bin/Mac/Xcode/$(CONFIGURATION)";
@@ -525,7 +551,7 @@
 				CONFIGURATION_TEMP_DIR = "$(SRCROOT)/../../../Bin/Mac/Xcode/$(CONFIGURATION)";
 				GCC_ENABLE_CPP_RTTI = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
-				GCC_PREPROCESSOR_DEFINITIONS = "";
+				GCC_PREPROCESSOR_DEFINITIONS = COMPILE_CPP_11;
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -540,7 +566,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../../../../../LibOVR/Lib/Mac/Xcode/$(CONFIGURATION)",
-					"$(SRCROOT)/../../../../../eegeo-platform/",
+					"$(SRCROOT)/../../../../../eegeo-platform/prebuilt/**",
 					/usr/local/lib,
 				);
 				OBJROOT = "$(SRCROOT)/../../../Bin/Mac/Xcode/$(CONFIGURATION)";
