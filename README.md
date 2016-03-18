@@ -10,7 +10,7 @@ The project is still in its early stages. See [https://www.eegeo.com/developers/
 
 ## Getting Started
 
-To get started, first clone this repo: `git clone git@github.com:eegeo/oculus-sdk.git`
+To get started, first clone this repo: `git clone git@github.com:eegeo/eegeo-oculus-sdk.git`
 
 ### Requirements
 
@@ -22,7 +22,7 @@ To get started, first clone this repo: `git clone git@github.com:eegeo/oculus-sd
 ### Setup
 
 1.  From the root of the repo, run `./update.platform.sh` to download the most up to date version of the eeGeo OSX SDK.
-2.  Open the [LibOVR_With_Samples.xcworkspace](https://github.com/eegeo/oculus-sdk/tree/master/Samples/LibOVR_With_Samples.xcworkspace) workspace in Xcode.
+2.  Open the [LibOVR_With_Samples.xcworkspace](https://github.com/eegeo/eegeo-oculus-sdk/tree/master/Samples/LibOVR_With_Samples.xcworkspace) workspace in Xcode.
 3.  Setup the headset as a second **non-mirrored** monitor:
     *   Set the display rotated **90&deg;**
     *   Set the resolution to **1080p** (or option 'best for Oculus DK2')
@@ -48,4 +48,4 @@ Pull requests are welcomed if you would like to contribute to this project.
 
 ## Support
 
-If you have any issues, bug reports, or feature requests, feel free to submit to the [issue tracker](https://github.com/eegeo/oculus-sdk/issues) for this repository. If you have other questions, you can contact us at [support@eegeo.com](mailto:support@eegeo.com).
+If you have any issues, bug reports, or feature requests, feel free to submit to the [issue tracker](https://github.com/eegeo/eegeo-oculus-sdk/issues) for this repository. If you have other questions, you can contact us at [support@eegeo.com](mailto:support@eegeo.com).
