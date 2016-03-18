@@ -2,15 +2,15 @@
     <img src="http://cdn2.eegeo.com/wp-content/uploads/2016/03/eegeo_logo_quite_big.png" alt="eeGeo Logo" title="eegeo" align="right" height="80px" />
 </a>
 
-# eeGeo Oculus SDK
+# eeGeo Oculus Demo
 
-The eeGeo Oculus SDK is an experimental project allowing you to explore [eeGeo's 3D maps](https://www.eegeo.com) through an Oculus VR headset. It is an integration of the Oculus OSX SDK with the eeGeo OSX SDK.
+The eeGeo Oculus Demo is an experimental project allowing you to explore [eeGeo's 3D maps](https://www.eegeo.com) through an Oculus VR headset. It integrates both the Oculus OSX SDK with the eeGeo OSX SDK.
 
 The project is still in its early stages. See [https://www.eegeo.com/developers/virtual-reality-maps](https://www.eegeo.com/developers/virtual-reality-maps) for more information.
 
 ## Getting Started
 
-To get started, first clone this repo: `git clone git@github.com:eegeo/eegeo-oculus-sdk.git`
+To get started, first clone this repo: `git clone git@github.com:eegeo/eegeo-oculus-demo.git`
 
 ### Requirements
 
@@ -22,7 +22,7 @@ To get started, first clone this repo: `git clone git@github.com:eegeo/eegeo-ocu
 ### Setup
 
 1.  From the root of the repo, run `./update.platform.sh` to download the most up to date version of the eeGeo OSX SDK.
-2.  Open the [LibOVR_With_Samples.xcworkspace](https://github.com/eegeo/eegeo-oculus-sdk/tree/master/Samples/LibOVR_With_Samples.xcworkspace) workspace in Xcode.
+2.  Open the [LibOVR_With_Samples.xcworkspace](https://github.com/eegeo/eegeo-oculus-demo/tree/master/Samples/LibOVR_With_Samples.xcworkspace) workspace in Xcode.
 3.  Setup the headset as a second **non-mirrored** monitor:
     *   Set the display rotated **90&deg;**
     *   Set the resolution to **1080p** (or option 'best for Oculus DK2')
@@ -48,4 +48,4 @@ Pull requests are welcomed if you would like to contribute to this project.
 
 ## Support
 
-If you have any issues, bug reports, or feature requests, feel free to submit to the [issue tracker](https://github.com/eegeo/eegeo-oculus-sdk/issues) for this repository. If you have other questions, you can contact us at [support@eegeo.com](mailto:support@eegeo.com).
+If you have any issues, bug reports, or feature requests, feel free to submit to the [issue tracker](https://github.com/eegeo/eegeo-oculus-demo/issues) for this repository. If you have other questions, you can contact us at [support@eegeo.com](mailto:support@eegeo.com).
