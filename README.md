@@ -22,7 +22,7 @@ To get started, first clone this repo: `git clone git@github.com:eegeo/eegeo-ocu
 ### Setup
 
 1.  From the root of the repo, run `./update.platform.sh` to download the most up to date version of the eeGeo OSX SDK.
-2.  Open the [LibOVR_With_Samples.xcworkspace](https://github.com/eegeo/eegeo-oculus-demo/tree/master/Samples/LibOVR_With_Samples.xcworkspace) workspace in Xcode.
+2.  Open the [Samples/LibOVR_With_Samples.xcworkspace](https://github.com/eegeo/eegeo-oculus-demo/tree/master/Samples/LibOVR_With_Samples.xcworkspace) workspace in Xcode.
 3.  Setup the headset as a second **non-mirrored** monitor:
     *   Set the display rotated **90&deg;**
     *   Set the resolution to **1080p** (or option 'best for Oculus DK2')
