@@ -4,9 +4,21 @@
 
 # eeGeo Oculus Demo
 
+* [Support](#support)
+* [Getting Started](#getting-started)
+	* [Requirements](#requirements)
+	* [Setup](#setup)
+	* [Controls](#controls)
+* [Contributing](#contributing)
+* [License](#license)
+
 The eeGeo Oculus Demo is an experimental project allowing you to explore [eeGeo's 3D maps](https://www.eegeo.com) through an Oculus VR headset. It integrates both the Oculus OSX SDK with the eeGeo OSX SDK.
 
 The project is still in its early stages. See [https://www.eegeo.com/developers/virtual-reality-maps](https://www.eegeo.com/developers/virtual-reality-maps) for more information.
+
+## Support
+
+If you have any questions, bug reports, or feature requests, feel free to submit to the [issue tracker](https://github.com/eegeo/eegeo-oculus-demo/issues) for this repository.
 
 ## Getting Started
 
@@ -46,6 +58,6 @@ To get started, first clone this repo: `git clone git@github.com:eegeo/eegeo-ocu
 
 Pull requests are welcomed if you would like to contribute to this project.
 
-## Support
+## License
 
-If you have any issues, bug reports, or feature requests, feel free to submit to the [issue tracker](https://github.com/eegeo/eegeo-oculus-demo/issues) for this repository. If you have other questions, you can contact us at [support@eegeo.com](mailto:support@eegeo.com).
+The eeGeo 3D Maps SDK is released under the Eegeo Platform SDK Evaluation license. See the [LICENSE.md](https://github.com/eegeo/eegeo-oculus-demo/blob/master/LICENSE.md) file for details.
