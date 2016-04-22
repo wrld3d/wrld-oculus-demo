@@ -98,6 +98,7 @@ namespace Eegeo
         const Eegeo::EnvironmentCharacterSet::Type environmentCharacterSet = Eegeo::EnvironmentCharacterSet::JapanPlaceNames;
         
         Eegeo::Config::PlatformConfig config = (new OSX::OSXPlatformConfigBuilder())->Build();
+        config.GraphicsConfig.AlwaysUseHighFidelityWaterShader = true;
         
         m_pOSXLocationService = new Eegeo::OSX::OSXLocationService();
         
