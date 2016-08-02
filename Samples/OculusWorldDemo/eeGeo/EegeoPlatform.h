@@ -8,7 +8,6 @@
 #include "TerrainHeightRepository.h"
 #include "GlobalShadowing.h"
 #include "TouchEventWrapper.h"
-#include "Blitter.h"
 #include "SearchServiceCredentials.h"
 #include "IJpegLoader.h"
 #include "EegeoWorld.h"

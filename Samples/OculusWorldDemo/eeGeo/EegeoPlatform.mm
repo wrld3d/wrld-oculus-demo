@@ -36,7 +36,7 @@
 #include "RenderableFilters.h"
 #include "Node.h"
 #include "CityThemesModule.h"
-
+#include "EffectHandler.h"
 #include "PackedRenderableFilter.h"
 #include "PlaceNamesViewFilter.h"
 #include "RoadNamesRenderableFilter.h"
