@@ -62,4 +62,6 @@ Pull requests are welcomed if you would like to contribute to this project.
 
 ## License
 
-The eeGeo 3D Maps SDK is released under the Eegeo Platform SDK Evaluation license. See the [LICENSE.md](https://github.com/eegeo/eegeo-oculus-demo/blob/master/LICENSE.md) file for details.
+This repository is a fork of the Oculus SDK. The Oculus SDK is provided under the Oculus VR Rift SDK Software License. See the [LICENSE.txt](https://github.com/eegeo/eegeo-oculus-demo/blob/master/LICENSE.txt) file for details.
+
+Modifications by eeGeo to integrate the eeGeo 3D Maps SDK are released under the Simplified BSD License. See the [LICENSE.md](https://github.com/eegeo/eegeo-oculus-demo/blob/master/LICENSE.md) file for details.
