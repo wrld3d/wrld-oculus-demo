@@ -123,8 +123,7 @@ namespace Eegeo
                                          *m_pOSXLocationService,
                                          *m_pOSXNativeUIFactories,
                                          environmentCharacterSet,
-                                         config,
-                                         NULL);
+                                         config);
         
         Eegeo::Modules::Map::MapModule& mapModule = m_pWorld->GetMapModule();
                
