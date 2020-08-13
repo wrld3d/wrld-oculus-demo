@@ -38,7 +38,6 @@ using namespace OVR::OvrPlatform;
 - (void)run
 {
     NSAutoreleasePool* pool = [[NSAutoreleasePool alloc] init];
-    _running = YES;
     OVR::OvrPlatform::Application* app;
     {
         using namespace OVR;
