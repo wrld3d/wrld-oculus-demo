@@ -28,7 +28,7 @@ To get started, first clone this repo: `git clone git@github.com:wrld3d/wrld-ocu
 
 ### Requirements
 
-*   [Xcode](https://developer.apple.com/xcode/) (7.2 tested)
+*   [Xcode](https://developer.apple.com/xcode/) (11.5 tested)
 *   [Oculus OS X Runtime](https://developer.oculus.com/downloads/pc/0.4.1-beta/Oculus_Runtime_for_OS_X/) (0.4.1 tested)
 *   Headset firmware 2.12
 *   OS X machine with GPU capable of running the WRLD SDK at 75Hz

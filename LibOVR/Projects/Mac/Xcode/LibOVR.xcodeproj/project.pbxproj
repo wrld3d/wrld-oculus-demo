@@ -702,7 +702,7 @@
 		E82D4CD81906FE640070CB3F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CONFIGURATION_BUILD_DIR = "$(SRCROOT)/../../../Lib/Mac/Xcode/$(CONFIGURATION)";
 				CONFIGURATION_TEMP_DIR = "$(SRCROOT)/../../../Lib/Mac/Xcode/$(CONFIGURATION)";
 				EXECUTABLE_PREFIX = "";
@@ -722,7 +722,7 @@
 		E82D4CD91906FE640070CB3F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CONFIGURATION_BUILD_DIR = "$(SRCROOT)/../../../Lib/Mac/Xcode/$(CONFIGURATION)";
 				CONFIGURATION_TEMP_DIR = "$(SRCROOT)/../../../Lib/Mac/Xcode/$(CONFIGURATION)";
 				EXECUTABLE_PREFIX = "";
